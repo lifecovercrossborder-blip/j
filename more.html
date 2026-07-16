@@ -1,0 +1,563 @@
+<!-- more.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continental Repatriation & SADC Compliance Guide</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Specific Styles for Information & Countries Guide */
+        .guide-hero {
+            padding: 6rem 2rem 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(11, 17, 24, 0.95) 0%, rgba(11, 17, 24, 0.8) 100%);
+        }
+
+        .guide-hero h1 {
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-lead {
+            font-size: 1.1rem;
+            color: var(--text-body);
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.6;
+        }
+
+        /* Border Corridors Styling */
+        .corridor-section {
+            margin-bottom: 5rem;
+        }
+
+        .corridor-title {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.6rem;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            padding-bottom: 0.75rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .country-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .country-detail-card {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            border-radius: 4px;
+            padding: 2rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .country-detail-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-gold);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header img {
+            width: 45px;
+            height: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+        }
+
+        .card-header h3 {
+            font-family: var(--font-serif);
+            color: var(--text-white);
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .meta-list li {
+            font-size: 0.85rem;
+            color: var(--text-body);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.25rem;
+        }
+
+        .meta-list li strong {
+            color: var(--accent-gold);
+        }
+
+        .requirement-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-body);
+        }
+
+        /* Documentation & Specs layout */
+        .specs-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .specs-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .specs-column h3 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .spec-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-body);
+        }
+
+        .spec-list li::before {
+            content: "◆";
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Title & Guide Intro -->
+    <section class="guide-hero">
+        <h1>Repatriation Logistics & SADC Standards</h1>
+        <p class="intro-lead">
+            Cross-border repatriation involves intricate regulatory frameworks. Our specialized logistics network operates in full compliance with the South African Department of Health, Department of Home Affairs, and foreign consulates to ensure dignified transit across regional boundaries [1].
+        </p>
+    </section>
+
+    <!-- Detailed Country Repatriation Details -->
+    <section class="section-container">
+        
+        <!-- Corridor 1: Southern Road Transit (SADC Central) -->
+        <div class="corridor-section">
+            <h2 class="corridor-title">Southern Road Corridor (Direct Transit)</h2>
+            <div class="country-detail-grid">
+                
+                <!-- Zimbabwe -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/zw.png" alt="Zimbabwe Flag">
+                        <h3>Zimbabwe</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Border Post:</span> <strong>Beitbridge</strong></li>
+                        <li><span>Est. Road Transit Time:</span> <strong>24 - 36 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Harare, Bulawayo, Gweru</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Beitbridge represents one of the busiest regional border crossings. All transports require a certified embalming certificate, health permit clearance, and Zimbabwean consulate registration in Pretoria or Johannesburg prior to dispatch.
+                    </p>
+                </div>
+
+                <!-- Lesotho -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/ls.png" alt="Lesotho Flag">
+                        <h3>Lesotho</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Border Post:</span> <strong>Maseru Bridge / Ficksburg</strong></li>
+                        <li><span>Est. Road Transit Time:</span> <strong>12 - 18 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Maseru, Leribe, Mafeteng</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Requires basic municipal clearance and certified South African health notifications. Border processes are generally streamlined, but custom transit clearances must be filed before arrival at the border gate.
+                    </p>
+                </div>
+
+                <!-- Mozambique -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/mz.png" alt="Mozambique Flag">
+                        <h3>Mozambique</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Border Post:</span> <strong>Lebombo / Ressano Garcia</strong></li>
+                        <li><span>Est. Road Transit Time:</span> <strong>18 - 30 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Maputo, Beira, Nampula</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Mozambique transit requires complete translation of all South African administrative death forms (DHA-1663 & death certificate) into Portuguese, alongside official stamping by the Mozambican consulate.
+                    </p>
+                </div>
+
+                <!-- Botswana -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/bw.png" alt="Botswana Flag">
+                        <h3>Botswana</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Border Post:</span> <strong>Kopfontein / Ramatlabama</strong></li>
+                        <li><span>Est. Road Transit Time:</span> <strong>12 - 20 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Gaborone, Francistown</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Botswana requires import permit permissions from local health boards. Rigorous health and sanitation compliance is enforced at both Kopfontein and Ramatlabama border checkpoints.
+                    </p>
+                </div>
+
+                <!-- Namibia -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/na.png" alt="Namibia Flag">
+                        <h3>Namibia</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Border Post:</span> <strong>Nakop / Vioolsdrift</strong></li>
+                        <li><span>Est. Road Transit Time:</span> <strong>24 - 40 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Windhoek, Walvis Bay</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Transits are handled via the Northern Cape routes. Namibia demands standard SADC health declarations, consular non-infectious disease certificates, and structured import manifest filings.
+                    </p>
+                </div>
+
+                <!-- Eswatini -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/sz.png" alt="Eswatini Flag">
+                        <h3>Eswatini</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Border Post:</span> <strong>Oshoek / Ngwenya</strong></li>
+                        <li><span>Est. Road Transit Time:</span> <strong>10 - 15 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Mbabane, Manzini</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Eswatini transit benefits from proximity to South African logistics centers. Requires local chief notification confirmations and standard health clearance documents for smooth border clearing.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Corridor 2: Extended SADC & Inland Road Corridors -->
+        <div class="corridor-section">
+            <h2 class="corridor-title">Inland Road Corridor (Extended SADC)</h2>
+            <div class="country-detail-grid">
+                
+                <!-- Malawi -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/mw.png" alt="Malawi Flag">
+                        <h3>Malawi</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Border Post:</span> <strong>Dedza / Mwanza (Via Mozambique)</strong></li>
+                        <li><span>Est. Road Transit Time:</span> <strong>2 - 3 Days</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Lilongwe, Blantyre</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        As a landlocked country requiring passage through Mozambique or Zimbabwe, Malawi road transports require multiple transit permissions (cross-border customs manifestos) alongside standard Malawian health clearances.
+                    </p>
+                </div>
+
+                <!-- Zambia -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/zm.png" alt="Zambia Flag">
+                        <h3>Zambia</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Border Post:</span> <strong>Chirundu / Victoria Falls</strong></li>
+                        <li><span>Est. Road Transit Time:</span> <strong>36 - 48 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Lusaka, Ndola, Kitwe</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Zambia road clearances are cleared directly through Zimbabwe. Local import permits must be secured from the Ministry of Health in Lusaka before our vehicles cross the Zambezi River.
+                    </p>
+                </div>
+
+                <!-- Angola -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/ao.png" alt="Angola Flag">
+                        <h3>Angola</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Border Post:</span> <strong>Santa Clara (Via Namibia)</strong></li>
+                        <li><span>Est. Road Transit Time:</span> <strong>3 - 4 Days (Or Air Freight)</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Luanda, Huambo, Lobito</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Extremely long distance requires meticulous vehicle preparation or transition to direct air freight. All documents must be officially translated into Portuguese and legalised by the Angolan Embassy in Pretoria.
+                    </p>
+                </div>
+
+                <!-- Tanzania -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/tz.png" alt="Tanzania Flag">
+                        <h3>Tanzania</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Border Post:</span> <strong>Tunduma (Via Zambia)</strong></li>
+                        <li><span>Est. Road Transit Time:</span> <strong>4 - 5 Days (Or Air Freight)</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Dar es Salaam, Arusha, Mwanza</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Crosses multiple international borders. Tanzania health authorities mandate sealed zinc-lined coffins, validated embalming treatments, and physical inspections at the Tunduma border entry post.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Corridor 3: Central & East Africa Corridor (Air Freight Specialist) -->
+        <div class="corridor-section">
+            <h2 class="corridor-title">Central & East Africa Air Corridor</h2>
+            <div class="country-detail-grid">
+                
+                <!-- DR Congo -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/cd.png" alt="DR Congo Flag">
+                        <h3>DR Congo</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Transit Method:</span> <strong>Air Freight (Standard) / Road</strong></li>
+                        <li><span>Est. Air Transit Time:</span> <strong>24 - 48 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Kinshasa, Lubumbashi, Goma</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Air repatriation via OR Tambo International Airport is highly recommended for safety and preservation. Requires strict compliance with international IATA cargo rules, consulate seals, and import clearances.
+                    </p>
+                </div>
+
+                <!-- Kenya -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/ke.png" alt="Kenya Flag">
+                        <h3>Kenya</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Transit Method:</span> <strong>Air Freight (OR Tambo to JKIA)</strong></li>
+                        <li><span>Est. Air Transit Time:</span> <strong>24 - 48 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Nairobi, Mombasa, Kisumu</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Coordination is completed with Kenya Airways or South African Airways cargo divisions. Standard documentation, embassy verification seals, and local receiver approvals are required at Nairobi JKIA cargo terminal.
+                    </p>
+                </div>
+
+                <!-- Burundi -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/bi.png" alt="Burundi Flag">
+                        <h3>Burundi</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Transit Method:</span> <strong>Air Freight (Bujumbura Airport)</strong></li>
+                        <li><span>Est. Air Transit Time:</span> <strong>36 - 72 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Bujumbura, Gitega</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Air cargo space reservation must be verified 48 hours prior. Demands Ministry of Foreign Affairs clearance stamps, consular permission letters, and certified identification of the receiving funeral service.
+                    </p>
+                </div>
+
+                <!-- Rwanda -->
+                <div class="country-detail-card">
+                    <div class="card-header">
+                        <img src="https://flagcdn.com/w80/rw.png" alt="Rwanda Flag">
+                        <h3>Rwanda</h3>
+                    </div>
+                    <ul class="meta-list">
+                        <li><span>Transit Method:</span> <strong>Air Freight (Kigali International)</strong></li>
+                        <li><span>Est. Air Transit Time:</span> <strong>24 - 48 Hours</strong></li>
+                        <li><span>Primary Destination Hubs:</span> <strong>Kigali, Gisenyi, Butare</strong></li>
+                    </ul>
+                    <p class="requirement-text">
+                        Highly organized customs clearance. Rwanda mandates detailed digital health manifests, certified medical death causes, and official physical identification of the deceased by the Rwandan Embassy.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Technical & Documentation Specifications -->
+        <div class="specs-row">
+            
+            <div class="specs-column">
+                <h3>Required South African Documents</h3>
+                <p style="color: var(--text-body); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5;">
+                    The following statutory clearances must be filed and approved before any human remains can leave South African jurisdiction [1]:
+                </p>
+                <ul class="spec-list">
+                    <li><strong>Form DHA-1663:</strong> Official Registration of Death issued by a certified medical practitioner [1].</li>
+                    <li><strong>BI-863 Notification of Death:</strong> Filed with Home Affairs to obtain the official Death Certificate [1].</li>
+                    <li><strong>Form GW 11/14 (Removal Permit):</strong> Authorized and signed by a municipal health officer [1].</li>
+                    <li><strong>Non-Infectious Disease Declaration:</strong> Issued by the attending doctor or local pathologist [1].</li>
+                    <li><strong>Embalming Certificate:</strong> Legally required for all human remains crossing borders [1].</li>
+                </ul>
+            </div>
+
+            <div class="specs-column">
+                <h3>Technical Transit Specifications</h3>
+                <p style="color: var(--text-body); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5;">
+                    We maintain absolute adherence to health standards to guarantee clean border inspections and dignified carriage:
+                </p>
+                <ul class="spec-list">
+                    <li><strong>Hermetic Zinc Lining:</strong> Legally mandated for air and international road transport. The inner zinc container is hermetically soldered and sealed within the wooden casket.</li>
+                    <li><strong>Refrigerated Vehicles:</strong> Fleet utilizes customized, long-distance road transport fitted with active temperature control systems.</li>
+                    <li><strong>Consular Seals:</strong> Embassies place wax security seals on the transport casket following official documentation verification.</li>
+                    <li><strong>Border Clearing Agents:</strong> Pre-retained clearing officials coordinate direct gate transits at Beitbridge, Lebombo, and Maseru.</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Blue "Contact us" Floating Widget -->
+    <a href="contact.html" class="contact-widget-float">
+        <svg viewBox="0 0 24 24">
+            <path d="M20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M20,8l-8,5L4,8V6l8,5l8-5V8z"/>
+        </svg>
+        Contact us
+    </a>
+
+    <!-- Universal Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h5>Information</h5>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                    <li><a href="plans.html">Our Plans</a></li>
+                    <li><a href="faq.html">Search Terms</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="more.html">Advanced Search</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Why Choose Us</h5>
+                <ul>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="paymentplan.html">Secure payment</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                    <li><a href="guarantee.html">Guarantee</a></li>
+                    <li><a href="T&C.html">Terms & Conditions</a></li>
+                    <li><a href="about.html">History</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>My Account</h5>
+                <ul>
+                    <li><a href="dashboard.html">Member Dashboard</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Contacts</h5>
+                <div class="footer-contact-info">
+                    <p>E-mail: <a href="mailto:info@crossboarder.org" style="color: #777; text-decoration: none;">info@crossboarder.org</a></p>
+                    <p style="margin-top: 0.75rem;">Telephone: <span>+27-83492-4837</span></p>
+                    <p style="margin-top: 0.75rem;">9am to 10pm everyday</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h5>Sign Up for Our Newsletter:</h5>
+                <form class="newsletter-box" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; 2026 Cross Border Life Cover. All Rights Reserved.
+            </div>
+            <div class="social-and-top">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3.3 0-4 2.7-4 4v3z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.6c-.9.4-1.8.6-2.8.7 1-.6 1.8-1.6 2.2-2.7-1 .6-2 1-3.1 1.2-.9-1-2.2-1.6-3.6-1.6-2.7 0-5 2.2-5 5 0 .4 0 .8.1 1.1C7.7 8.1 4.1 6.1 1.7 3.1c-.4.8-.7 1.7-.7 2.7 0 1.7.9 3.2 2.2 4.1-.8 0-1.6-.2-2.2-.6v.1c0 2.4 1.7 4.4 4 4.9-.4.1-.9.2-1.4.2-.3 0-.7 0-1-.1.6 2 2.5 3.5 4.7 3.5-1.7 1.4-4 2.2-6.4 2.2-.4 0-.8 0-1.2-.1 2.3 1.5 5 2.3 7.9 2.3 9.5 0 14.7-7.9 14.7-14.7v-.7c1-.7 1.8-1.6 2.5-2.6z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Google Plus">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 11.5v2.1h4.4c-.2 1.1-1.3 3.3-4.4 3.3-2.7 0-4.9-2.2-4.9-5s2.2-5 4.9-5c1.5 0 2.6.7 3.2 1.2l1.6-1.6C11.3 5.5 9.6 4.6 7.5 4.6 3.9 4.6 1 7.5 1 11.1s2.9 6.5 6.5 6.5c3.8 0 6.3-2.7 6.3-6.4 0-.4 0-.8-.1-1.2H7.5zm15.5-.9h-2v-2h-1.5v2h-2v1.5h2v2h1.5v-2h2z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.1c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-.1.4-.2.4-1-.4-2.2-.5-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.5 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1 5.7.2 4.8.4 4 .7c-.8.3-1.5.7-2.1 1.4-.7.6-1.1 1.3-1.4 2.1-.3.8-.5 1.7-.6 3C.1 8.5 0 8.9 0 12s.1 3.5.1 4.8c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.1.6.7 1.3 1.1 2.1 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 4.8.1s3.5-.1 4.8-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.1-1.4.7-.6 1.1-1.3 1.4-2.1.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-4.8s-.1-3.5-.1-4.8c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.1-.6-.7-1.3-1.1-2.1-1.4-.8-.3-1.7-.5-3-.6C15.7.1 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.3c-2.3 0-4.1-1.8-4.1-4.1s1.8-4.1 4.1-4.1 4.1 1.8 4.1 4.1-1.8 4.1-4.1 4.1zm6.4-11c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5 1.5-.7 1.5-1.5z"/></svg>
+                    </a>
+                </div>
+                <a href="#" class="back-to-top-btn" aria-label="Back to top">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three Scripts in exact recommended order -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

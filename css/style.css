@@ -1,0 +1,1214 @@
+/* css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-navy: #0f171f;          /* Midnight charcoal background */
+    --bg-card: #141e28;          /* Slightly lighter card container */
+    --accent-gold: #c5a059;       /* Muted gold text & borders */
+    --accent-gold-rgb: 197, 160, 89;
+    --gold-card: #bfa370;         /* Solid gold background for pricing cards */
+    --widget-blue: #4fa2db;       /* Floating "Contact us" widget blue */
+    --text-white: #ffffff;
+    --text-body: #a3abb5;         /* Muted grey-blue body text */
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Inter', sans-serif;
+    --border-thin: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-navy);
+    color: var(--text-body);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Rules exactly matching types */
+h1, h2, h3, h4, .logo, .nav-links a, .btn {
+    font-family: var(--font-serif);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Elegant Fleur-de-lis CSS Divider */
+.gold-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem auto;
+    max-width: 1200px;
+}
+.gold-divider::before, .gold-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(197,160,89,0) 0%, rgba(197,160,89,0.3) 50%, rgba(197,160,89,0) 100%);
+}
+.gold-divider svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--accent-gold);
+    margin: 0 1.5rem;
+    opacity: 0.8;
+}
+
+/* Header & Vertical Nav Dividers */
+header {
+    background-color: var(--bg-navy);
+    border-bottom: var(--border-thin);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.logo-container svg {
+    width: 32px;
+    height: 32px;
+    fill: var(--accent-gold);
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+/* Nav Item separators exactly like types */
+.nav-links li:not(:last-child)::after {
+    content: "|";
+    color: rgba(197, 160, 89, 0.3);
+    margin: 0 1.25rem;
+    font-weight: 300;
+    font-size: 0.85rem;
+}
+
+.nav-links a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-gold);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 0px; /* types utilize sharp corners */
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-gold);
+    color: #000;
+}
+
+/* Floating "Contact us" widget blue capsule */
+.contact-widget-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--widget-blue);
+    color: var(--text-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-widget-float:hover {
+    transform: translateY(-2px);
+    background-color: #3b8ec8;
+}
+
+.contact-widget-float svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* Hero Section */
+.hero {
+    padding: 8rem 2rem;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(197, 160, 89, 0.05) 0%, rgba(15, 23, 31, 0) 70%);
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    line-height: 1.25;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-body);
+    max-width: 750px;
+    margin: 0 auto 3rem auto;
+}
+
+/* Sections */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+}
+
+/* types Accordion layout */
+.accordion-item {
+    background-color: var(--bg-card);
+    border: var(--border-thin);
+    margin-bottom: 1rem;
+}
+
+.accordion-header {
+    padding: 1.25rem 1.75rem;
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-content {
+    padding: 0 1.75rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: var(--text-body);
+    font-size: 0.95rem;
+}
+
+.accordion-item.active .accordion-content {
+    padding: 0 1.75rem 1.5rem 1.75rem;
+    max-height: 500px;
+}
+
+/* Pricing Grid precisely styled like type 4 */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.price-card {
+    background-color: var(--gold-card); /* Gold background */
+    padding: 3rem 2rem;
+    text-align: center;
+    border: none;
+}
+
+.price-card h3 {
+    color: var(--bg-navy);
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(15, 23, 31, 0.15);
+    padding-bottom: 1.5rem;
+}
+
+.price-val {
+    color: var(--text-white);
+    font-size: 3.5rem;
+    font-family: var(--font-serif);
+    font-weight: 400;
+    margin: 2rem 0;
+    position: relative;
+    display: inline-block;
+}
+
+.price-val span {
+    font-size: 1.2rem;
+    vertical-align: super;
+}
+
+.price-details {
+    list-style: none;
+    margin-bottom: 2.5rem;
+}
+
+.price-details li {
+    color: rgba(15, 23, 31, 0.75);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(15, 23, 31, 0.1);
+}
+
+.btn-price-action {
+    background-color: var(--bg-navy);
+    color: var(--text-white);
+    border: none;
+    width: 100%;
+}
+
+.btn-price-action:hover {
+    background-color: #1a2a38;
+}
+
+/* Form inputs exactly styled like type 7 */
+.form-box {
+    background-color: var(--bg-navy);
+    border: var(--border-thin);
+    padding: 3.5rem;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.form-row {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-family: var(--font-serif);
+    color: var(--accent-gold);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    background-color: #15202c; /* Exact dark input box shade */
+    border: 1px solid rgba(197, 160, 89, 0.15);
+    color: var(--text-white);
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+}
+
+/* Testimonial exactly matching type 21 */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 3rem;
+}
+
+.testimonial-item {
+    display: flex;
+    gap: 2rem;
+}
+
+.testimonial-img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.testimonial-meta h4 {
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.testimonial-meta p {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    font-style: normal;
+}
+
+/* Footer layout exactly matching type 18 */
+.footer-wrap {
+    border-top: var(--border-thin);
+    padding: 6rem 2rem 4rem 2rem;
+    background-color: var(--bg-navy);
+}
+
+.footer-columns {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+}
+
+.footer-block h4 {
+    color: var(--accent-gold);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-block p {
+    color: var(--text-body);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom-bar {
+    text-align: left;
+    max-width: 1200px;
+    margin: 4rem auto 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(197, 160, 89, 0.1);
+    color: rgba(163, 171, 181, 0.4);
+    font-size: 0.8rem;
+}
+
+/* Mobile Responsiveness styling */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links li:not(:last-child)::after {
+        margin: 0 0.5rem;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .testimonial-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}/* Light grey footer styled exactly like the provided type */
+.site-footer {
+    background-color: #0f171f;
+    color: #555555;
+    font-family: 'Inter', sans-serif;
+    padding: 5rem 2rem 2rem 2rem;
+    border-top: 1px solid #e1e1e1;
+}
+
+.footer-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    padding-bottom: 4rem;
+}
+
+.footer-column h5 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #000000;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-column ul li a {
+    color: #777777;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #000000;
+}
+
+.footer-contact-info {
+    color: #777777;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.footer-contact-info span {
+    font-weight: 700;
+    color: #333333;
+}
+
+/* Newsletter Signup Field styling */
+.newsletter-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 280px;
+}
+
+.newsletter-input {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
+    color: #333333;
+    outline: none;
+    border-radius: 0; /* Sharp corners */
+}
+
+.newsletter-input::placeholder {
+    color: #999999;
+}
+
+.newsletter-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: center;
+    border-radius: 0; /* Sharp corners */
+}
+
+.newsletter-btn:hover {
+    background-color: #222222;
+}
+
+//* Dark Luxury Footer - Configured to match the theme */
+.site-footer {
+    background-color: #0f171f; /* Slightly darker than main body for a grounded feel */
+    color: var(--text-body);
+    font-family: var(--font-sans);
+    padding: 6rem 2rem 3rem 2rem;
+    border-top: 1px solid rgba(197, 160, 89, 0.2); /* Muted gold border line */
+}
+
+.footer-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    padding-bottom: 4rem;
+}
+
+.footer-column h5 {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent-gold); /* Imperial gold headers */
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-column ul li a {
+    color: var(--text-body);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: var(--accent-gold);
+}
+
+.footer-contact-info {
+    color: var(--text-body);
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+.footer-contact-info span {
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+/* Newsletter Signup Block */
+.newsletter-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 280px;
+}
+
+.newsletter-input {
+    width: 100%;
+    background-color: #15202c; /* Matches form input background */
+    border: 1px solid rgba(197, 160, 89, 0.15);
+    padding: 0.9rem 1.2rem;
+    font-size: 0.9rem;
+    color: var(--text-white);
+    outline: none;
+    border-radius: 0; /* Sharp corners */
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-input:focus {
+    border-color: var(--accent-gold);
+}
+
+.newsletter-input::placeholder {
+    color: var(--text-body);
+    opacity: 0.5;
+}
+
+/* Subscribe Button Styled to match primary theme */
+.newsletter-btn {
+    background-color: var(--accent-gold);
+    color: #0b1118;
+    border: none;
+    padding: 0.9rem;
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    border-radius: 0; /* Sharp corners */
+}
+
+.newsletter-btn:hover {
+    background-color: #dfb234;
+    transform: translateY(-1px);
+}
+
+/* Footer Bottom Layout */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(197, 160, 89, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.copyright-text {
+    color: var(--text-body);
+    opacity: 0.6;
+    font-size: 0.85rem;
+}
+
+.social-and-top {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--text-body);
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-gold);
+    opacity: 1;
+}
+
+/* Back to Top button updated to gold outline */
+.back-to-top-btn {
+    background-color: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 0; /* Sharp corners */
+}
+
+.back-to-top-btn:hover {
+    background-color: var(--accent-gold);
+    color: #0b1118;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .social-and-top {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .newsletter-box {
+        max-width: 100%;
+    }
+}
+}/* --- CSS Additions for Slideshow, Split-Banners, & Content Blocks --- */
+
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    min-height: 500px;
+    background-color: var(--bg-navy);
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.35); /* Dark layout overlay as seen in type 23 */
+}
+
+.slide-content {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.slide-content h2 {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.slide-content p {
+    font-size: 1.15rem;
+    color: var(--text-white);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Slideshow navigation arrows */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+    padding: 1rem;
+    font-family: var(--font-serif);
+}
+
+.slider-arrow:hover {
+    color: var(--text-white);
+}
+
+.arrow-left { left: 2rem; }
+.arrow-right { right: 2rem; }
+
+/* Category Grid modeled on Silent Hall type 13 & 25 */
+.categories-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.cat-card {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    cursor: pointer;
+    border: var(--border-thin);
+}
+
+.cat-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    filter: brightness(0.6);
+}
+
+.cat-card:hover img {
+    transform: scale(1.05);
+}
+
+.cat-info {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    z-index: 5;
+    text-align: center;
+}
+
+.cat-info h4 {
+    font-size: 1.6rem;
+    color: var(--text-white);
+    margin-bottom: 0.5rem;
+}
+
+.cat-info p {
+    color: var(--accent-gold);
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* Golden Split Cards Section modeled on type 14 */
+.split-cards-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.gold-bordered-box {
+    border: 2px solid var(--accent-gold);
+    padding: 3rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.gold-bordered-box:hover {
+    background-color: rgba(197, 160, 89, 0.05);
+}
+
+.box-text-wrap {
+    max-width: 80%;
+}
+
+.box-text-wrap h3 {
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.box-text-wrap p {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.chevron-arrow {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    font-family: var(--font-serif);
+    font-weight: 300;
+}
+
+/* Map frame styled dark as seen in type 14 */
+.dark-map-container {
+    width: 100%;
+    height: 380px;
+    border: var(--border-thin);
+    filter: invert(90%) hue-rotate(180deg) brightness(0.8); /* Inverts Google map to look dark */
+}
+
+/* Two-column layout with visual block styles from types 15 & 24 */
+.scenic-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 6rem 0;
+}
+
+.scenic-img-box {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    border: var(--border-thin);
+}
+
+.scenic-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.scenic-content h2 {
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+}
+
+.scenic-content p {
+    color: var(--text-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+/* Responsive Overrides */
+@media (max-width: 992px) {
+    .split-cards-row, .scenic-row {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .slideshow-container {
+        height: 60vh;
+    }
+    .slide-content h2 {
+        font-size: 1.8rem;
+    }
+    .scenic-img-box {
+        height: 320px;
+    }
+}/* Logo Styling Updates */
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.25rem 0;
+}
+
+.logo-img {
+    height: 55px; /* Adjusts height to keep the navigation bar slim and elegant */
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.02); /* Subtle hover transition */
+}
+
+/* Ensure navbar space behaves well on smaller screens */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 45px; /* Slightly smaller on mobile devices */
+    }
+}/* --- Pricing Grid Table Custom Styles (type 5) --- */
+.pricing-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: var(--bg-card);
+    font-family: var(--font-sans);
+    color: var(--text-body);
+}
+
+.pricing-comparison-table th, 
+.pricing-comparison-table td {
+    padding: 1.5rem;
+    border: 1px solid rgba(197, 160, 89, 0.15); /* Thin elegant borders */
+}
+
+.pricing-comparison-table th {
+    background-color: var(--bg-navy);
+    color: var(--accent-gold);
+    font-family: var(--font-serif);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.pricing-comparison-table tr:hover {
+    background-color: rgba(197, 160, 89, 0.02);
+}
+
+.pricing-comparison-table td.feature-label {
+    text-align: left;
+    font-family: var(--font-serif);
+    color: var(--text-white);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: rgba(197, 160, 89, 0.05);
+}
+
+@media (max-width: 768px) {
+    .pricing-comparison-table th, 
+    .pricing-comparison-table td {
+        padding: 1rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}/* --- Timeline History Layout (types 10, 11, 12) --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Central gold vertical spine line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: rgba(197, 160, 89, 0.3); /* Gold line */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+}
+
+/* Node markers */
+.timeline-node {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: -8px;
+    top: 30px;
+    border-radius: 50%;
+    background-color: var(--accent-gold);
+    border: 3px solid var(--bg-navy);
+    z-index: 5;
+    transition: background-color 0.3s ease;
+}
+
+/* Alternating alignments (Left / Right) */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-item:nth-child(even) .timeline-node {
+    left: -8px;
+}
+
+/* Date Indicators outside the boxes */
+.timeline-date {
+    font-family: var(--font-serif);
+    color: var(--accent-gold);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+/* Box wrapper inside the spine */
+.timeline-content {
+    padding: 2rem;
+    background-color: var(--bg-card);
+    border: var(--border-thin);
+    position: relative;
+}
+
+.timeline-content h3 {
+    font-family: var(--font-serif);
+    color: var(--text-white);
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+.timeline-content p {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+/* Timeline hover interaction */
+.timeline-item:hover .timeline-node {
+    background-color: var(--text-white);
+}
+
+/* Responsive adjustments for Timeline */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    .timeline-item:nth-child(odd) {
+        left: 0;
+        text-align: left;
+    }
+    .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+    }
+    .timeline-item:nth-child(odd) .timeline-node,
+    .timeline-item:nth-child(even) .timeline-node {
+        left: 23px;
+    }
+}./* Repatriation Flags Section Styling */
+.repatriation-countries {
+    margin-top: 3rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.countries-title {
+    font-size: 1.8rem;
+    color: #333; /* Use #fff if your site is set to a dark theme */
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.flags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.flag-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #d4af37; /* Gold accent border */
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flag-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(212, 175, 55, 0.25); /* Subtle gold glow on hover */
+}
+
+.flag-icon {
+    width: 60px;
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+}
+
+.flag-country {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+}

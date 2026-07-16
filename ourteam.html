@@ -1,0 +1,365 @@
+<!-- team.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Cross Border Life Cover</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Specific Styles for Team Page Layout */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            text-align: center;
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 2.5rem 1.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+        }
+
+        .team-portrait {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--accent-gold);
+            margin: 0 auto 1.5rem auto;
+            display: block;
+        }
+
+        .team-member h3 {
+            color: var(--accent-gold);
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-member p.role {
+            font-size: 0.85rem;
+            color: var(--text-white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .team-member p.bio {
+            font-size: 0.9rem;
+            color: var(--text-body);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Social Icons inside team cards */
+        .team-socials {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .team-socials a {
+            color: var(--text-body);
+            transition: color 0.2s ease;
+        }
+
+        .team-socials a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Stats Counters Grid */
+        .counters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+            text-align: center;
+            margin: 4rem 0;
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 3rem;
+        }
+
+        .counter-num {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 3.5rem;
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .counter-label {
+            font-size: 0.85rem;
+            color: var(--text-body);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Testimonials Slider/Grid Layout */
+        .Testimonials-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+    <nav class="nav-container">
+        <a href="index.html" class="logo-container">
+            <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="plans.html">Plans</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Contacts</a></li>
+			<a href="login.html" class="btn btn-primary">Member Log In</a>
+        </ul>
+    </nav>
+</header>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 6rem 2rem 2rem 2rem;">
+        <h1>Our Team</h1>
+        <p>Our dedicated, local South African and regional African diaspora specialists provide empathetic care, policy administration, and professional border logistics.</p>
+    </section>
+
+    <!-- Content Divider -->
+    <div class="gold-divider">
+         <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    </div>
+
+    <!-- Counters Grid Segment -->
+    <section class="section-container" style="padding-top: 0; padding-foot: 0;">
+        <div class="counters-grid">
+            <div>
+                <div class="counter-num">879</div>
+                <div class="counter-label">Funerals Served</div>
+            </div>
+            <div>
+                <div class="counter-num">1,025</div>
+                <div class="counter-label">Satisfied Clients</div>
+            </div>
+            <div>
+                <div class="counter-num">329</div>
+                <div class="counter-label">Staff Members</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- South African & Regional Diaspora Team Members Grid -->
+    <section class="section-container" style="padding-top: 2rem;">
+        <h2 class="section-title" style="text-align: center;">Meet Our Leadership</h2>
+        <p style="text-align: center; color: var(--text-body); max-width: 600px; margin: 0 auto;">
+            Our specialists understand the legal, emotional, and cultural needs of preparing arrangements across borders.
+        </p>
+
+        <div class="team-grid">
+            
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <img src="images/Chipo.jpg" class="team-portrait" alt="Chipo Moyo">
+                <h3>Chipo Moyo</h3>
+                <p class="role">Founder & Diaspora Advocate</p>
+                <p class="bio">With extensive expertise in regional immigration structures, Chipo leads our mission to assist expatriate families with dignified cross-border arrangements.</p>
+                <div class="team-socials">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <img src="images/Sipho.jpg" class="team-portrait" alt="Sipho Dube">
+                <h3>Sipho Dube</h3>
+                <p class="role">Chief Operating Officer</p>
+                <p class="bio">Sipho manages our South African broker registrations and compliance structures. He coordinates directly with licensed underwriters for policy security.</p>
+                <div class="team-socials">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <img src="images/Tariro.jpg" class="team-portrait" alt="Tariro Ncube">
+                <h3>Tariro Ncube</h3>
+                <p class="role">Senior Logistics Recruiter</p>
+                <p class="bio">Tariro supervises our administrative teams and ensures that border clearances, consulate permits, and repatriation channels are handled smoothly.</p>
+                <div class="team-socials">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Content Divider -->
+    <div class="gold-divider">
+         <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    </div>
+
+    <!-- Testimonials Grid ( Jack, Amanda, Adam, Nick, John ) -->
+    <section class="section-container">
+        <h2 class="section-title" style="text-align: center;">What Families Say</h2>
+        <p style="text-align: center; color: var(--text-body); max-width: 600px; margin: 0 auto;">
+            Read the direct feedback from families we have guided through cross-border arrangements.
+        </p>
+
+        <div class="Testimonials-masonry">
+            
+            <!-- Jack Thompson -->
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">Jack Thompson</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"Your service is often a source of inspiration. It simplifies our lives and makes usually complicated processes easy."</p>
+            </div>
+
+            <!-- Amanda Edwards -->
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">Amanda Edwards</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"Your service has really cut my working time by 80%. It gives me goosebumps thinking about all that extra time I have."</p>
+            </div>
+
+            <!-- Adam Cooper -->
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">Adam Cooper</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"The guys at your company are amazing! Your service has added a great value to my life. I love that I can jump to your site any time and have access to support 24/7."</p>
+            </div>
+
+            <!-- Adam Smith -->
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">Adam Smith</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"I just don't know how to describe your services... They are extraordinary! I am quite happy with them! Just keep up going this way!"</p>
+            </div>
+
+            <!-- Nick Harris -->
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">Nick Harris</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"Great organization!! Your prompt answer became a pleasant surprise for me. You’ve rendered an invaluable service! Thank you very much!"</p>
+            </div>
+
+            <!-- John Anderson -->
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">John Anderson</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"I just want to thank you for your help. I was so pleased and grateful. Keep up the excellent work. Your site provides the best support I have ever encountered."</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Blue "Contact us" Floating Widget -->
+    <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services." class="contact-widget-float">
+    <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    Contact us
+</a>
+
+    <!-- Universal Footer () -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h5>Information</h5>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                    <li><a href="plans.html">Our Plans</a></li>
+                    <li><a href="faq.html">Search Terms</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="more.html">Advanced Search</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Why Choose Us</h5>
+                <ul>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="paymentplan.html">Secure payment</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                    <li><a href="guarantee.html">Guarantee</a></li>
+                    <li><a href="T&C.html">Terms & Conditions</a></li>
+                    <li><a href="about.html">History</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>My Account</h5>
+                <ul>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Contacts</h5>
+                <div class="footer-contact-info">
+                    <p>E-mail: <a href="info@crossboarderlifecover.org" style="color: #777; text-decoration: none;">info@crossboarder.org</a></p>
+                    <p style="margin-top: 0.75rem;">Telephone: <span>+27-83492-4837</span></p>
+					<p>Whatsapp: <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services."  style="color: #777; text-decoration: none;"><p><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.55 0 .24 5.3.24 11.82c0 2.08.54 4.1 1.58 5.88L0 24l6.48-1.7a11.8 11.8 0 0 0 5.58 1.42h.01c6.51 0 11.82-5.3 11.82-11.82 0-3.16-1.23-6.13-3.37-8.42zM12.07 21.7a9.82 9.82 0 0 1-5-1.37l-.36-.21-3.85 1.01 1.03-3.75-.24-.38a9.82 9.82 0 1 1 8.42 4.7zm5.39-7.36c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.29.5 1.73.64.73.23 1.39.2 1.92.12.59-.09 1.77-.72 2.02-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35z"/>
+    </svg> <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services."  style="color: #777; text-decoration: none;"></a></p></a></p>
+                    <p style="margin-top: 0.75rem;">9am to 10pm everyday</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h5>Sign Up for Our Newsletter:</h5>
+                <form class="newsletter-box" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; 2026 Cross Border Life Cover. All Rights Reserved.
+            </div>
+            <div class="social-and-top">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3.3 0-4 2.7-4 4v3z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.6c-.9.4-1.8.6-2.8.7 1-.6 1.8-1.6 2.2-2.7-1 .6-2 1-3.1 1.2-.9-1-2.2-1.6-3.6-1.6-2.7 0-5 2.2-5 5 0 .4 0 .8.1 1.1C7.7 8.1 4.1 6.1 1.7 3.1c-.4.8-.7 1.7-.7 2.7 0 1.7.9 3.2 2.2 4.1-.8 0-1.6-.2-2.2-.6v.1c0 2.4 1.7 4.4 4 4.9-.4.1-.9.2-1.4.2-.3 0-.7 0-1-.1.6 2 2.5 3.5 4.7 3.5-1.7 1.4-4 2.2-6.4 2.2-.4 0-.8 0-1.2-.1 2.3 1.5 5 2.3 7.9 2.3 9.5 0 14.7-7.9 14.7-14.7v-.7c1-.7 1.8-1.6 2.5-2.6z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Google Plus">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 11.5v2.1h4.4c-.2 1.1-1.3 3.3-4.4 3.3-2.7 0-4.9-2.2-4.9-5s2.2-5 4.9-5c1.5 0 2.6.7 3.2 1.2l1.6-1.6C11.3 5.5 9.6 4.6 7.5 4.6 3.9 4.6 1 7.5 1 11.1s2.9 6.5 6.5 6.5c3.8 0 6.3-2.7 6.3-6.4 0-.4 0-.8-.1-1.2H7.5zm15.5-.9h-2v-2h-1.5v2h-2v1.5h2v2h1.5v-2h2z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.1c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-.1.4-.2.4-1-.4-2.2-.5-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.5 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1 5.7.2 4.8.4 4 .7c-.8.3-1.5.7-2.1 1.4-.7.6-1.1 1.3-1.4 2.1-.3.8-.5 1.7-.6 3C.1 8.5 0 8.9 0 12s.1 3.5.1 4.8c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.1.6.7 1.3 1.1 2.1 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 4.8.1s3.5-.1 4.8-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.1-1.4.7-.6 1.1-1.3 1.4-2.1.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-4.8s-.1-3.5-.1-4.8c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.1-.6-.7-1.3-1.1-2.1-1.4-.8-.3-1.7-.5-3-.6C15.7.1 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.3c-2.3 0-4.1-1.8-4.1-4.1s1.8-4.1 4.1-4.1 4.1 1.8 4.1 4.1-1.8 4.1-4.1 4.1zm6.4-11c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5 1.5-.7 1.5-1.5z"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5c-1 .3-1.8 1.1-2.1 2.1C0 8 0 12 0 12s0 4 .5 5.8c.3 1 1.1 1.8 2.1 2.1 1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5c1-.3 1.8-1.1 2.1-2.1.5-1.8.5-5.8.5-5.8s0-4-.5-5.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg>
+                    </a>
+                </div>
+                <a href="#" class="back-to-top-btn" aria-label="Back to top">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- REPLACE: <script src="js/app.js"></script> -->
+    <!-- WITH THE FOLLOWING THREE SCRIPTS IN EXACT ORDER: -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

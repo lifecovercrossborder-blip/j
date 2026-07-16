@@ -1,0 +1,400 @@
+<!-- forum.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum - Cross Border Life Cover</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Forum Specific Layout CSS */
+        .forum-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            font-family: var(--font-sans);
+        }
+
+        .forum-nav {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            border-bottom: var(--border-thin);
+            padding-bottom: 1rem;
+        }
+
+        .forum-nav a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s ease;
+        }
+
+        .forum-nav a:hover {
+            color: var(--text-white);
+        }
+
+        .forum-section {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            margin-bottom: 3rem;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .forum-section-header {
+            background-color: var(--gold-card);
+            color: #0b1118;
+            padding: 1.5rem 2rem;
+        }
+
+        .forum-section-header h3 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+
+        .forum-section-header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .forum-row {
+            display: grid;
+            grid-template-columns: 1fr 120px 120px 240px;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+            align-items: center;
+        }
+
+        .forum-row:last-child {
+            border-bottom: none;
+        }
+
+        .category-details h4 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-details p {
+            font-size: 0.85rem;
+            color: var(--text-body);
+            line-height: 1.5;
+        }
+
+        .stat-col {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-body);
+        }
+
+        .stat-col span {
+            display: block;
+            font-family: var(--font-serif);
+            color: var(--text-white);
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .post-col {
+            font-size: 0.8rem;
+            color: var(--text-body);
+            line-height: 1.5;
+        }
+
+        .post-col strong {
+            color: var(--text-white);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Stat blocks below panels */
+        .stats-panel {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            border-radius: 4px;
+        }
+
+        .stats-panel h4 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            padding-bottom: 0.5rem;
+        }
+
+        .stats-panel p {
+            font-size: 0.85rem;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            font-size: 0.85rem;
+            color: var(--text-body);
+        }
+
+        .stat-item span {
+            color: var(--text-white);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .forum-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+            .stat-col {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+    <nav class="nav-container">
+        <a href="index.html" class="logo-container">
+            <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="plans.html">Plans</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Contacts</a></li>
+			<a href="login.html" class="btn btn-primary">Member Log In</a>
+        </ul>
+    </nav>
+</header>
+
+    <!-- Forum Dashboard -->
+    <main class="forum-wrapper">
+        
+        <!-- Tabbed Forums navigation index -->
+        <nav class="forum-nav">
+            <a href="#">Index</a>
+            <a href="#">Recent Topics</a>
+            <a href="#">Search</a>
+        </nav>
+
+        <!-- 1. MAIN FORUM -->
+        <section class="forum-section">
+            <div class="forum-section-header">
+                <h3>Main Forum</h3>
+                <p>This is the main forum section. It serves as a container for categories for your topics.</p>
+            </div>
+            
+            <!-- Welcome Mat -->
+            <div class="forum-row">
+                <div class="category-details">
+                    <h4>Welcome Mat</h4>
+                    <p>We encourage new members to introduce themselves here. Get to know one another and share your interests.</p>
+                </div>
+                <div class="stat-col"><span>1</span>Topics</div>
+                <div class="stat-col"><span>0</span>Replies</div>
+                <div class="post-col">
+                    <strong>Last Post: Welcome to Kunena!</strong>
+                    by admin<br>12 years 1 month ago
+                </div>
+            </div>
+
+            <!-- Suggestion Box -->
+            <div class="forum-row">
+                <div class="category-details">
+                    <h4>Suggestion Box</h4>
+                    <p>Have some feedback and input to share? Don't be shy and drop us a note. We want to make our site better and more user friendly for our guests and members alike.</p>
+                </div>
+                <div class="stat-col"><span>0</span>Topics</div>
+                <div class="stat-col"><span>0</span>Replies</div>
+                <div class="post-col">No Posts</div>
+            </div>
+        </section>
+
+        <!-- 2. KUNENA SECTION -->
+        <section class="forum-section">
+            <div class="forum-section-header">
+                <h3>Kunena, the Communication Platform for Joomla</h3>
+                <p>Kunena is the ideal forum extension for Joomla. It's free, fully integrated, and no bridges or hacks are required.</p>
+            </div>
+
+            <!-- Ideal Forum -->
+            <div class="forum-row">
+                <div class="category-details">
+                    <h4>Ideal forum</h4>
+                    <p>Kunena is the ideal forum extension for Joomla. It's free, fully integrated, and no bridges or hacks are required.</p>
+                </div>
+                <div class="stat-col"><span>1</span>Topics</div>
+                <div class="stat-col"><span>3</span>Replies</div>
+                <div class="post-col">
+                    <strong>Last Post: General template iss...</strong>
+                    by lorem_ipsum<br>11 years 5 months ago
+                </div>
+            </div>
+
+            <!-- More About the Kunena -->
+            <div class="forum-row">
+                <div class="category-details">
+                    <h4>More about the Kunena</h4>
+                    <p>Want to know more about the Kunena Project? See how the open source philosophy drives our community, follow our development on GitHub, and how you can participate to make Kunena even better.</p>
+                </div>
+                <div class="stat-col"><span>1</span>Topics</div>
+                <div class="stat-col"><span>1</span>Replies</div>
+                <div class="post-col">
+                    <strong>Last Post: Pellentesque non lib...</strong>
+                    by dolor_sit<br>11 years 5 months ago
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. WHO IS ONLINE -->
+        <div class="stats-panel">
+            <h4>Who Is Online</h4>
+            <p>Total users online: <span>0 Members</span> and <span>6 Guests</span> Online</p>
+        </div>
+
+        <!-- 4. KUNENA STATISTICS -->
+        <div class="stats-panel">
+            <h4>Kunena Forum Statistics</h4>
+            <div class="stats-grid">
+                <div class="stat-item">Total Users: <span>4</span></div>
+                <div class="stat-item">Latest Member: <span>admin</span></div>
+                <div class="stat-item">Total Messages: <span>7</span></div>
+                <div class="stat-item">Total Subjects: <span>3</span></div>
+                <div class="stat-item">Total Sections: <span>2</span></div>
+                <div class="stat-item">Total Categories: <span>4</span></div>
+            </div>
+            <div class="stats-grid" style="margin-top: 1.5rem; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 1rem;">
+                <div class="stat-item">Today Open: <span>0</span></div>
+                <div class="stat-item">Yesterday Open: <span>0</span></div>
+                <div class="stat-item">Today Total Answer: <span>0</span></div>
+                <div class="stat-item">Yesterday Total Answer: <span>0</span></div>
+            </div>
+            <p style="margin-top: 1.5rem; font-family: var(--font-serif); font-size: 0.85rem;"><a href="#" style="color: var(--accent-gold); text-decoration: none;">User List »</a> | <a href="#" style="color: var(--accent-gold); text-decoration: none;">More Statistics »</a></p>
+        </div>
+
+    </main>
+
+    <!-- Blue "Contact us" Floating Widget -->
+    <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services." class="contact-widget-float">
+    <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    Contact us
+</a>
+
+    <!-- Universal Footer () -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h5>Information</h5>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                    <li><a href="plans.html">Our Plans</a></li>
+                    <li><a href="faq.html">Search Terms</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="more.html">Advanced Search</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Why Choose Us</h5>
+                <ul>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="paymentplan.html">Secure payment</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                    <li><a href="guarantee.html">Guarantee</a></li>
+                    <li><a href="T&C.html">Terms & Conditions</a></li>
+                    <li><a href="about.html">History</a></li>
+                </ul>
+            </div>
+            <<div class="footer-column">
+    <h5>My Account</h5>
+    <ul>
+        <li><a href="dashboard.html">Member Dashboard</a></li> <!-- Pointing to new dashboard -->
+        <li><a href="forum.html">Forum</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="elements.html">Elements</a></li>
+        <li><a href="sitemap.html">Site Map</a></li>
+    </ul>
+</div>
+            <div class="footer-column">
+                <h5>Contacts</h5>
+                <div class="footer-contact-info">
+                    <p>E-mail: <a href="info@crossboarderlifecover.org" style="color: #777; text-decoration: none;">info@crossboarder.org</a></p>
+                    <p style="margin-top: 0.75rem;">Telephone: <span>+27-83492-4837</span></p>
+					<p>Whatsapp: <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services."  style="color: #777; text-decoration: none;"><p><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.55 0 .24 5.3.24 11.82c0 2.08.54 4.1 1.58 5.88L0 24l6.48-1.7a11.8 11.8 0 0 0 5.58 1.42h.01c6.51 0 11.82-5.3 11.82-11.82 0-3.16-1.23-6.13-3.37-8.42zM12.07 21.7a9.82 9.82 0 0 1-5-1.37l-.36-.21-3.85 1.01 1.03-3.75-.24-.38a9.82 9.82 0 1 1 8.42 4.7zm5.39-7.36c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.29.5 1.73.64.73.23 1.39.2 1.92.12.59-.09 1.77-.72 2.02-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35z"/>
+    </svg> <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services."  style="color: #777; text-decoration: none;"></a></p></a></p>
+                    <p style="margin-top: 0.75rem;">9am to 10pm everyday</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h5>Sign Up for Our Newsletter:</h5>
+                <form class="newsletter-box" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; 2026 Cross Border Life Cover. All Rights Reserved.
+            </div>
+            <div class="social-and-top">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3.3 0-4 2.7-4 4v3z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.6c-.9.4-1.8.6-2.8.7 1-.6 1.8-1.6 2.2-2.7-1 .6-2 1-3.1 1.2-.9-1-2.2-1.6-3.6-1.6-2.7 0-5 2.2-5 5 0 .4 0 .8.1 1.1C7.7 8.1 4.1 6.1 1.7 3.1c-.4.8-.7 1.7-.7 2.7 0 1.7.9 3.2 2.2 4.1-.8 0-1.6-.2-2.2-.6v.1c0 2.4 1.7 4.4 4 4.9-.4.1-.9.2-1.4.2-.3 0-.7 0-1-.1.6 2 2.5 3.5 4.7 3.5-1.7 1.4-4 2.2-6.4 2.2-.4 0-.8 0-1.2-.1 2.3 1.5 5 2.3 7.9 2.3 9.5 0 14.7-7.9 14.7-14.7v-.7c1-.7 1.8-1.6 2.5-2.6z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Google Plus">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 11.5v2.1h4.4c-.2 1.1-1.3 3.3-4.4 3.3-2.7 0-4.9-2.2-4.9-5s2.2-5 4.9-5c1.5 0 2.6.7 3.2 1.2l1.6-1.6C11.3 5.5 9.6 4.6 7.5 4.6 3.9 4.6 1 7.5 1 11.1s2.9 6.5 6.5 6.5c3.8 0 6.3-2.7 6.3-6.4 0-.4 0-.8-.1-1.2H7.5zm15.5-.9h-2v-2h-1.5v2h-2v1.5h2v2h1.5v-2h2z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.1c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-.1.4-.2.4-1-.4-2.2-.5-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.5 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1 5.7.2 4.8.4 4 .7c-.8.3-1.5.7-2.1 1.4-.7.6-1.1 1.3-1.4 2.1-.3.8-.5 1.7-.6 3C.1 8.5 0 8.9 0 12s.1 3.5.1 4.8c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.1.6.7 1.3 1.1 2.1 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 4.8.1s3.5-.1 4.8-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.1-1.4.7-.6 1.1-1.3 1.4-2.1.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-4.8s-.1-3.5-.1-4.8c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.1-.6-.7-1.3-1.1-2.1-1.4-.8-.3-1.7-.5-3-.6C15.7.1 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.3c-2.3 0-4.1-1.8-4.1-4.1s1.8-4.1 4.1-4.1 4.1 1.8 4.1 4.1-1.8 4.1-4.1 4.1zm6.4-11c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5 1.5-.7 1.5-1.5z"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5c-1 .3-1.8 1.1-2.1 2.1C0 8 0 12 0 12s0 4 .5 5.8c.3 1 1.1 1.8 2.1 2.1 1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5c1-.3 1.8-1.1 2.1-2.1.5-1.8.5-5.8.5-5.8s0-4-.5-5.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg>
+                    </a>
+                </div>
+                <a href="#" class="back-to-top-btn" aria-label="Back to top">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- REPLACE: <script src="js/app.js"></script> -->
+    <!-- WITH THE FOLLOWING THREE SCRIPTS IN EXACT ORDER: -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

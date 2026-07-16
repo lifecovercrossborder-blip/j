@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Cross Border Life Cover</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+    <nav class="nav-container">
+        <a href="index.html" class="logo-container">
+            <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="plans.html">Plans</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Contacts</a></li>
+			<a href="login.html" class="btn btn-primary">Member Log In</a>
+        </ul>
+    </nav>
+</header>
+
+    <section class="section-container" style="max-width: 600px; margin: 4rem auto;">
+        <div class="form-box">
+            <h2 class="form-title">Member Log In</h2>
+            <form id="login-form">
+                <div class="form-row">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" class="form-input" required placeholder="Enter your email...">
+                </div>
+                <div class="form-row">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-input" required placeholder="Enter your password...">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 2rem;">Log In</button>
+            </form>
+            <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem;">
+                Don't have an account? <a href="signup.html" style="color: var(--accent-gold); text-decoration: none;">Sign Up</a>
+            </p>
+            <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem;">
+                <a href="reset-password.html" style="color: var(--text-body); text-decoration: none; opacity: 0.8;">Forgot password?</a>
+            </p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        redirectIfAuthenticated();
+        document.getElementById("login-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                await logIn(email, password);
+                window.location.href = "dashboard.html";
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+    </script>
+</body>
+</html>

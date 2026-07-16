@@ -1,0 +1,721 @@
+<!-- plans.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borderless Life Cover - Plans & Pricing</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Specific Styles for Strategic Plans Layout */
+        .marketing-banner {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 2.5rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .marketing-banner h2 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            line-height: 1.4;
+            font-style: italic;
+            text-transform: none;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .marketing-banner p {
+            font-size: 0.95rem;
+            color: var(--text-white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Highlight Ribbon for the R250 plan */
+        .killer-offer-card {
+            border: 2px solid var(--accent-gold) !important;
+            transform: scale(1.03);
+            position: relative;
+        }
+
+        .killer-ribbon {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-gold);
+            color: #0b1118;
+            padding: 0.25rem 1rem;
+            font-family: var(--font-serif);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Optional Add-Ons Grid */
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .addon-card {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 2rem;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .addon-card:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .addon-title {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .addon-price {
+            font-size: 1.8rem;
+            color: var(--text-white);
+            font-family: var(--font-serif);
+            margin-bottom: 1rem;
+        }
+
+        .addon-benefit {
+            font-size: 0.9rem;
+            color: var(--text-body);
+        }
+
+        /* Strategic Promo Deals Section */
+        .deals-section {
+            background: linear-gradient(135deg, rgba(11, 17, 24, 0.95), rgba(197, 160, 89, 0.1));
+            border: 1px solid var(--accent-gold);
+            padding: 3rem 2rem;
+            margin: 4rem auto;
+            max-width: 1000px;
+            border-radius: 4px;
+        }
+
+        .deals-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .deals-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .deal-text h3 {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+        }
+
+        .deal-text p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-body);
+            margin-bottom: 1.5rem;
+        }
+
+        .deal-badge {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #0b1118;
+            font-weight: bold;
+            padding: 0.4rem 1rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        /* Info / Waiting Periods Section styling */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .info-box {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .info-box h3 {
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-box ul li {
+            font-size: 0.9rem;
+            color: var(--text-body);
+            margin-bottom: 0.75rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .info-box ul li::before {
+            content: "✓";
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Embedded Plan Advisor Widget */
+        .plans-advisor-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--accent-gold);
+            padding: 2rem;
+            border-radius: 4px;
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+        }
+        .advisor-form-inline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .advisor-form-inline {
+                grid-template-columns: 1fr;
+            }
+        }
+        .form-group-inline {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group-inline label {
+            font-size: 0.8rem;
+            color: var(--text-white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .form-control-inline {
+            background-color: #0b1118;
+            border: var(--border-thin);
+            padding: 0.75rem;
+            color: var(--text-white);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .form-control-inline:focus {
+            border-color: var(--accent-gold);
+            outline: none;
+        }
+
+        /* Dynamic focus pulsing border for cards and table rows */
+        .plan-focus-pulse {
+            animation: card-pulse-gold 2s infinite alternate;
+        }
+        @keyframes card-pulse-gold {
+            0% {
+                border-color: rgba(197, 160, 89, 0.4);
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.2);
+            }
+            100% {
+                border-color: var(--accent-gold);
+                box-shadow: 0 0 15px 4px rgba(197, 160, 89, 0.5);
+            }
+        }
+
+        .advisor-recom-badge {
+            background-color: var(--accent-gold);
+            color: #0b1118;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 0.25rem 0.5rem;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html" class="active">Plans</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+                <li><a href="login.html" class="btn btn-primary">Member Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Title -->
+    <section class="hero" style="padding: 6rem 2rem 3rem 2rem;">
+        <h1>Borderless Life Cover</h1>
+        <p>Providing secure, dignified, and reliable funeral coverage across South African borders [1].</p>
+    </section>
+
+    <!-- Embedded SADC Repatriation Plan Advisor Widget (Coordinating Feature) -->
+    <div class="plans-advisor-card">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <h3 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.4rem; margin: 0 0 0.5rem 0;">SADC Repatriation Advisor</h3>
+            <p style="color: var(--text-body); font-size: 0.9rem; margin: 0;">Select your details to immediately highlight your recommended cover option [1].</p>
+        </div>
+        <div class="advisor-form-inline">
+            <div class="form-group-inline">
+                <label for="plans-country">Destination Country</label>
+                <select id="plans-country" class="form-control-inline" onchange="calculatePlansAdvisor()">
+                    <option value="Zimbabwe">Zimbabwe</option>
+                    <option value="Lesotho">Lesotho</option>
+                    <option value="Mozambique">Mozambique</option>
+                    <option value="Malawi">Malawi</option>
+                    <option value="Zambia">Zambia</option>
+                    <option value="Kenya">Kenya (Air Flight)</option>
+                </select>
+            </div>
+            <div class="form-group-inline">
+                <label for="plans-age">Insured Age Group</label>
+                <select id="plans-age" class="form-control-inline" onchange="calculatePlansAdvisor()">
+                    <option value="young">18 - 35 Years</option>
+                    <option value="mid">36 - 65 Years</option>
+                    <option value="senior">66+ Years</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slogan Banner -->
+    <div class="marketing-banner">
+        <h2>“If something happens to you in South Africa… we make sure you go home with dignity.”</h2>
+        <p>Joining Fee: R200 – R300 once-off</p>
+    </div>
+
+    <!-- Core Promotional Grid -->
+    <section class="section-container">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 4rem;">Featured Cover Plans</h2>
+        
+        <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 6rem;">
+            
+            <!-- R120 Plan (Cheap) -->
+            <div class="price-card" id="card-entry2">
+                <div id="badge-entry2"></div>
+                <h3>Entry Plan 2</h3>
+                <div class="price-val"><span>R</span>120</div>
+                <p style="color: var(--accent-gold); font-family: var(--font-serif); font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 1.5rem;">R25,000 Coverage</p>
+                <ul class="price-details">
+                    <li>Dignified Burial</li>
+                    <li>Road Transport Inclusion</li>
+                    <li>Small Gathering Benefit</li>
+                    <li>Targeted for Young Workers</li>
+                </ul>
+                <a href="paymentplan.html?plan=entry2" class="btn btn-primary btn-price-action" style="width: 100%; box-sizing: border-box; text-align: center;">Get Covered</a>
+            </div>
+
+            <!-- R180 Plan (Popular) -->
+            <div class="price-card" id="card-mid1" style="border: 1px solid rgba(197, 160, 89, 0.4);">
+                <span class="plan-tag" style="background-color: var(--accent-gold); color: #0b1118;">Best Seller</span>
+                <div id="badge-mid1"></div>
+                <h3>Mid Plan 1</h3>
+                <div class="price-val"><span>R</span>180</div>
+                <p style="color: var(--accent-gold); font-family: var(--font-serif); font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 1.5rem;">R40,000 Coverage</p>
+                <ul class="price-details">
+                    <li>Full Funeral Service</li>
+                    <li>Catering Benefit</li>
+                    <li>Complete Transport Services</li>
+                    <li>Most Popular Choice</li>
+                </ul>
+                <a href="paymentplan.html?plan=mid1" class="btn btn-primary btn-price-action" style="width: 100%; box-sizing: border-box; text-align: center;">Get Covered</a>
+            </div>
+
+            <!-- R250 Plan (Repatriation Hero / Best Value - Killer Offer) -->
+            <div class="price-card killer-offer-card" id="card-mid2">
+                <span class="killer-ribbon">We Take Your Body Home</span>
+                <div id="badge-mid2"></div>
+                <h3>Mid Plan 2</h3>
+                <div class="price-val"><span>R</span>250</div>
+                <p style="color: var(--accent-gold); font-family: var(--font-serif); font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 1.5rem;">R60,000 Coverage</p>
+                <ul class="price-details" style="font-weight: 600;">
+                    <li style="color: var(--text-white);">Full Traditional Funeral</li>
+                    <li style="color: var(--text-white);">Consular Documentation Admin</li>
+                    <li style="color: var(--text-white);">Complete Repatriation Services</li>
+                    <li style="color: var(--text-white);">Best Value for Foreigners</li>
+                </ul>
+                <a href="paymentplan.html?plan=mid2" class="btn btn-primary btn-price-action" style="background-color: var(--accent-gold); color: #0b1118; width: 100%; box-sizing: border-box; text-align: center;">Get Covered</a>
+            </div>
+
+        </div>
+
+        <!-- Promo Deals Section -->
+        <div class="deals-section">
+            <div class="deals-container">
+                <div class="deal-text">
+                    <span class="deal-badge">Special SADC Promotion</span>
+                    <h3>The Family Repatriation Bundle</h3>
+                    <p>Protect yourself, your spouse, and up to 4 children with automatic cross-border body repatriation coverage [1]. Sign up today and get <strong>annual premium adjustments</strong> with a 5% discount on continuous cover [1].</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem; color: var(--text-white);">✓ Custom coffin suitable for international transit standards</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--text-white);">✓ Full air or road repatriation to SADC capital centers</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--text-white);">✓ Up to 6 family members under underwritten protection [1]</li>
+                    </ul>
+                    <a href="paymentplan.html?plan=family-bundle" class="btn btn-primary" style="background-color: var(--accent-gold); color: #0b1118;">Secure This Deal</a>
+                </div>
+                <div style="text-align: center; border-left: 1px solid rgba(197, 160, 89, 0.2); padding-left: 2rem;">
+                    <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-body);">Promo Bundle Price</p>
+                    <p style="font-size: 3.5rem; font-family: var(--font-serif); color: var(--accent-gold); margin: 0.5rem 0;">R390<span style="font-size: 1rem; color: var(--text-body);">/mo</span></p>
+                    <p style="font-size: 0.85rem; color: var(--text-body); font-style: italic;">Saves over R120/month compared to individual policies.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional Add-Ons Section -->
+        <h2 class="section-title" style="text-align: center; margin-bottom: 1.5rem;">Optional Add-Ons</h2>
+        <p style="text-align: center; color: var(--text-body); max-width: 600px; margin: 0 auto 3rem auto;">
+            Customize your funeral policy with these low-cost monthly additions for immediate peace of mind [1].
+        </p>
+
+        <div class="addons-grid" style="margin-bottom: 6rem;">
+            
+            <!-- Add-on 1 -->
+            <div class="addon-card">
+                <div class="addon-title">Grocery Benefit</div>
+                <div class="addon-price">+R50<span>/mo</span></div>
+                <div class="addon-benefit">Provides an immediate R2,000 cash payout for family catering and groceries [1].</div>
+            </div>
+
+            <!-- Add-on 2 -->
+            <div class="addon-card">
+                <div class="addon-title">Airtime Benefit</div>
+                <div class="addon-price">+R30<span>/mo</span></div>
+                <div class="addon-benefit">Provides R500 airtime benefit payout to coordinate remote arrangements with ease [1].</div>
+            </div>
+
+            <!-- Add-on 3 -->
+            <div class="addon-card">
+                <div class="addon-title">Accidental Cover</div>
+                <div class="addon-price">+R70<span>/mo</span></div>
+                <div class="addon-benefit">Guarantees a double cash payout benefit on accidental death claims [1].</div>
+            </div>
+
+        </div>
+
+        <!-- Claims & Logistics Info -->
+        <h2 class="section-title" style="text-align: center; margin-bottom: 1.5rem;">Transparent Claims & Logistics Info</h2>
+        <p style="text-align: center; color: var(--text-body); max-width: 600px; margin: 0 auto 2rem auto;">
+            Clear policies underwritten for total financial and physical transport compliance [1].
+        </p>
+
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <h3>Underwritten Waiting Periods</h3>
+                <ul>
+                    <li><strong>Immediate Cover:</strong> Guaranteed payout for claims resulting from accidental death after your first successful premium.</li>
+                    <li><strong>6-Month Waiting Period:</strong> Applies to natural deaths (illness or age) standard under South African insurance regulations.</li>
+                    <li><strong>No Medical Checks:</strong> No physical examinations or medical histories are required to register.</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>Cross-Border Logistics Handled</h3>
+                <ul>
+                    <li><strong>Home Affairs Form DHA-1663:</strong> Official South African registration of death secured on your behalf.</li>
+                    <li><strong>Form BI-863 Clearance:</strong> Formal notification of death required for cross-border transport.</li>
+                    <li><strong>Embalming & Health Permits:</strong> Certified preparation and non-infectious disease clearances completed.</li>
+                    <li><strong>Consular Seal:</strong> Diplomatic transit permits arranged with the embassy of the destination country.</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>Claims Payout Guarantee</h3>
+                <ul>
+                    <li><strong>24-Hour Payout:</strong> Cash benefits (such as Grocery/Airtime) processed within 24 hours of receiving validated claim documents [1].</li>
+                    <li><strong>Direct Support:</strong> Dedicated claims assistant assigned to manage border documentation.</li>
+                    <li><strong>No Hidden Costs:</strong> Clear flat-rate pricing with transparent, fixed monthly joining fees.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Complete Pricing Comparison Table -->
+        <h2 class="section-title" style="text-align: center; margin-bottom: 1.5rem;">Full Funeral Cover Price List</h2>
+        <p style="text-align: center; color: var(--text-body); max-width: 600px; margin: 0 auto 4rem auto;">
+            Our full corporate and individual pricing tiers, underwritten for absolute financial protection [1].
+        </p>
+
+        <div style="background-color: var(--bg-card); border: var(--border-thin); padding: 1px; overflow-x: auto; margin-bottom: 6rem;">
+            <table class="pricing-comparison-table">
+                <thead>
+                    <tr>
+                        <th>Plan Type</th>
+                        <th>Monthly Premium</th>
+                        <th>Cover Amount</th>
+                        <th>Checkout Gateway</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="row-entry1">
+                        <td class="feature-label">Entry Plan 1</td>
+                        <td>R80</td>
+                        <td>R15,000</td>
+                        <td><a href="paymentplan.html?plan=entry1" style="color: var(--accent-gold); text-decoration: none; font-weight: bold;">Get Covered &rarr;</a></td>
+                    </tr>
+                    <tr id="row-entry2">
+                        <td class="feature-label">Entry Plan 2</td>
+                        <td>R120</td>
+                        <td>R25,000</td>
+                        <td><a href="paymentplan.html?plan=entry2" style="color: var(--accent-gold); text-decoration: none; font-weight: bold;">Get Covered &rarr;</a></td>
+                    </tr>
+                    <tr id="row-mid1">
+                        <td class="feature-label">Mid Plan 1 (Best Seller)</td>
+                        <td>R180</td>
+                        <td>R40,000</td>
+                        <td><a href="paymentplan.html?plan=mid1" style="color: var(--accent-gold); text-decoration: none; font-weight: bold;">Get Covered &rarr;</a></td>
+                    </tr>
+                    <tr id="row-mid2" style="background-color: rgba(197, 160, 89, 0.05);">
+                        <td class="feature-label" style="background-color: var(--accent-gold); color: #0b1118;">Mid Plan 2 (Best Repatriation)</td>
+                        <td style="font-weight: 700; color: var(--accent-gold);">R250</td>
+                        <td style="font-weight: 700; color: var(--text-white);">R60,000</td>
+                        <td><a href="paymentplan.html?plan=mid2" style="color: var(--accent-gold); text-decoration: none; font-weight: bold;">Get Covered &rarr;</a></td>
+                    </tr>
+                    <tr id="row-premium1">
+                        <td class="feature-label">Premium Plan 1</td>
+                        <td>R350</td>
+                        <td>R80,000</td>
+                        <td><a href="paymentplan.html?plan=premium1" style="color: var(--accent-gold); text-decoration: none; font-weight: bold;">Get Covered &rarr;</a></td>
+                    </tr>
+                    <tr id="row-premium2">
+                        <td class="feature-label">Premium Plan 2</td>
+                        <td>R500</td>
+                        <td>R100,000</td>
+                        <td><a href="paymentplan.html?plan=premium2" style="color: var(--accent-gold); text-decoration: none; font-weight: bold;">Get Covered &rarr;</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- Blue "Contact us" Floating Widget -->
+    <a href="contact.html" class="contact-widget-float">
+        <svg viewBox="0 0 24 24">
+            <path d="M20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M20,8l-8,5L4,8V6l8,5l8-5V8z"/>
+        </svg>
+        Contact us
+    </a>
+
+    <!-- Universal Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h5>Information</h5>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                    <li><a href="plans.html">Our Plans</a></li>
+                    <li><a href="faq.html">Search Terms</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="more.html">Advanced Search</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Why Choose Us</h5>
+                <ul>
+                    <li><a href="testimonials">Testimonials</a></li>
+                    <li><a href="paymentplan.html">Secure payment</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                    <li><a href="guarantee.html">Guarantee</a></li>
+                    <li><a href="T&C.html">Terms & Conditions</a></li>
+                    <li><a href="about.html">History</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>My Account</h5>
+                <ul>
+                    <li><a href="dashboard.html">Member Dashboard</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Contacts</h5>
+                <div class="footer-contact-info">
+                    <p>E-mail: <a href="mailto:info@crossboarder.org" style="color: #777; text-decoration: none;">info@crossboarder.org</a></p>
+                    <p style="margin-top: 0.75rem;">Telephone: <span>+3(800) 2345-6789</span></p>
+                    <p style="margin-top: 0.75rem;">9am to 10pm everyday</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h5>Sign Up for Our Newsletter:</h5>
+                <form class="newsletter-box" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; 2026 Cross Border Life Cover. All Rights Reserved.
+            </div>
+            <div class="social-and-top">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3.3 0-4 2.7-4 4v3z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.6c-.9.4-1.8.6-2.8.7 1-.6 1.8-1.6 2.2-2.7-1 .6-2 1-3.1 1.2-.9-1-2.2-1.6-3.6-1.6-2.7 0-5 2.2-5 5 0 .4 0 .8.1 1.1C7.7 8.1 4.1 6.1 1.7 3.1c-.4.8-.7 1.7-.7 2.7 0 1.7.9 3.2 2.2 4.1-.8 0-1.6-.2-2.2-.6v.1c0 2.4 1.7 4.4 4 4.9-.4.1-.9.2-1.4.2-.3 0-.7 0-1-.1.6 2 2.5 3.5 4.7 3.5-1.7 1.4-4 2.2-6.4 2.2-.4 0-.8 0-1.2-.1 2.3 1.5 5 2.3 7.9 2.3 9.5 0 14.7-7.9 14.7-14.7v-.7c1-.7 1.8-1.6 2.5-2.6z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Google Plus">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 11.5v2.1h4.4c-.2 1.1-1.3 3.3-4.4 3.3-2.7 0-4.9-2.2-4.9-5s2.2-5 4.9-5c1.5 0 2.6.7 3.2 1.2l1.6-1.6C11.3 5.5 9.6 4.6 7.5 4.6 3.9 4.6 1 7.5 1 11.1s2.9 6.5 6.5 6.5c3.8 0 6.3-2.7 6.3-6.4 0-.4 0-.8-.1-1.2H7.5zm15.5-.9h-2v-2h-1.5v2h-2v1.5h2v2h1.5v-2h2z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.1c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-.1.4-.2.4-1-.4-2.2-.5-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.5 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1 5.7.2 4.8.4 4 .7c-.8.3-1.5.7-2.1 1.4-.7.6-1.1 1.3-1.4 2.1-.3.8-.5 1.7-.6 3C.1 8.5 0 8.9 0 12s.1 3.5.1 4.8c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.1.6.7 1.3 1.1 2.1 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 4.8.1s3.5-.1 4.8-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.1-1.4.7-.6 1.1-1.3 1.4-2.1.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-4.8s-.1-3.5-.1-4.8c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.1-.6-.7-1.3-1.1-2.1-1.4-.8-.3-1.7-.5-3-.6C15.7.1 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.3c-2.3 0-4.1-1.8-4.1-4.1s1.8-4.1 4.1-4.1 4.1 1.8 4.1 4.1-1.8 4.1-4.1 4.1zm6.4-11c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5 1.5-.7 1.5-1.5z"/></svg>
+                    </a>
+                </div>
+                <a href="#" class="back-to-top-btn" aria-label="Back to top">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DEEP-LINK PARSER & FOCUS ENGINE -->
+    <script>
+        // Dictionary matching plan IDs with premiums, names, card containers, and table rows
+        const planMetadata = {
+            'entry1': { name: 'Entry Plan 1', price: 'R80', cardId: null, rowId: 'row-entry1' },
+            'entry2': { name: 'Entry Plan 2', price: 'R120', cardId: 'card-entry2', rowId: 'row-entry2', badgeId: 'badge-entry2' },
+            'mid1': { name: 'Mid Plan 1', price: 'R180', cardId: 'card-mid1', rowId: 'row-mid1', badgeId: 'badge-mid1' },
+            'mid2': { name: 'Mid Plan 2 (Best Repatriation)', price: 'R250', cardId: 'card-mid2', rowId: 'row-mid2', badgeId: 'badge-mid2' },
+            'premium1': { name: 'Premium Plan 1', price: 'R350', cardId: null, rowId: 'row-premium1' },
+            'premium2': { name: 'Premium Plan 2', price: 'R500', cardId: null, rowId: 'row-premium2' },
+            'family-bundle': { name: 'Family Repatriation Bundle', price: 'R390', cardId: null, rowId: null }
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Read deep link parameters from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const planKey = urlParams.get('plan');
+            
+            if (planKey && planMetadata[planKey]) {
+                focusAndHighlightPlan(planKey);
+            }
+        });
+
+        // Function to smoothly scroll to and visually highlight the targeted plan
+        function focusAndHighlightPlan(planKey) {
+            const data = planMetadata[planKey];
+            if (!data) return;
+
+            // Remove any previous focus state classes
+            document.querySelectorAll('.price-card, .pricing-comparison-table tr').forEach(el => {
+                el.classList.remove('plan-focus-pulse');
+            });
+            document.querySelectorAll('.advisor-recom-badge').forEach(badge => badge.remove());
+
+            let targetElement = null;
+
+            // Highlight and prep the pricing card if it exists
+            if (data.cardId) {
+                targetElement = document.getElementById(data.cardId);
+                if (targetElement) {
+                    targetElement.classList.add('plan-focus-pulse');
+                    
+                    // Add badge element dynamically inside card
+                    const badgeContainer = document.getElementById(data.badgeId);
+                    if (badgeContainer) {
+                        badgeContainer.innerHTML = `<span class="advisor-recom-badge">Advisor Recommended</span>`;
+                    }
+                }
+            } else if (data.rowId) {
+                // Otherwise highlight the row in the comparison table
+                targetElement = document.getElementById(data.rowId);
+                if (targetElement) {
+                    targetElement.classList.add('plan-focus-pulse');
+                }
+            }
+
+            // Scroll smoothly to target element
+            if (targetElement) {
+                setTimeout(() => {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }, 200);
+            }
+        }
+
+        // --- Inline SADC Repatriation Plan Advisor Logic ---
+        function calculatePlansAdvisor() {
+            const country = document.getElementById('plans-country').value;
+            const ageGroup = document.getElementById('plans-age').value;
+
+            let planKey = "mid1"; // default
+
+            if (ageGroup === 'young') {
+                if (country === 'Lesotho' || country === 'Eswatini') {
+                    planKey = "entry2";
+                } else {
+                    planKey = "mid1";
+                }
+            } else if (ageGroup === 'mid') {
+                if (country === 'Zimbabwe' || country === 'Mozambique' || country === 'Malawi') {
+                    planKey = "mid2";
+                } else {
+                    planKey = "mid1";
+                }
+            } else {
+                planKey = "premium1";
+            }
+
+            // Automatically highlight and scroll to the computed recommendation
+            focusAndHighlightPlan(planKey);
+        }
+    </script>
+
+    <!-- REPLACE: <script src="js/app.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

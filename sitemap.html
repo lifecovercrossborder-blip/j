@@ -1,0 +1,635 @@
+<!-- sitemap.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap & Portal Coordinates - Cross Border Life Cover</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .sitemap-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .sitemap-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .sitemap-hero h1 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .sitemap-hero p {
+            font-size: 1.1rem;
+            color: var(--text-body);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Search & Mode Toggles Bar */
+        .controls-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 1.5rem 2rem;
+            border-radius: 4px;
+            margin-bottom: 3rem;
+        }
+        @media (max-width: 768px) {
+            .controls-panel {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+        .search-group {
+            position: relative;
+            flex-grow: 1;
+        }
+        .search-input {
+            width: 100%;
+            background-color: #0b1118;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        .search-input:focus {
+            border-color: var(--accent-gold);
+            outline: none;
+        }
+        .search-icon {
+            position: absolute;
+            left: 0.85rem;
+            top: 50%;
+            transform: translateY(-50%);
+            fill: var(--text-body);
+            width: 16px;
+            height: 16px;
+            pointer-events: none;
+        }
+        .view-switch-group {
+            display: flex;
+            gap: 0.5rem;
+            background-color: #0b1118;
+            padding: 0.25rem;
+            border-radius: 4px;
+            border: var(--border-thin);
+        }
+        .switch-btn {
+            background: none;
+            border: none;
+            color: var(--text-body);
+            padding: 0.5rem 1.25rem;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .switch-btn.active {
+            background-color: var(--accent-gold);
+            color: #0b1118;
+        }
+
+        /* HTML View Grid Layout */
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        .sitemap-col {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        .sitemap-col.highlight-match {
+            border-color: var(--accent-gold);
+        }
+        .sitemap-col h3 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .link-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .link-list a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s, padding-left 0.2s;
+        }
+        .link-list a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+        .status-indicator {
+            width: 6px;
+            height: 6px;
+            background-color: #28a745;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 5px #28a745;
+        }
+
+        /* XML Pre-formatted Code View */
+        .xml-view-container {
+            display: none;
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            border-radius: 4px;
+            padding: 2rem;
+        }
+        .xml-code-block {
+            margin: 0;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #a8ffb2;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            line-height: 1.5;
+        }
+
+        /* Interactive Plan Advisor Mini-Tool */
+        .advisor-widget {
+            background: linear-gradient(135deg, rgba(11, 17, 24, 0.95), rgba(197, 160, 89, 0.08));
+            border: 1px solid var(--accent-gold);
+            padding: 2.5rem;
+            border-radius: 4px;
+            margin-top: 5rem;
+        }
+        .advisor-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            padding-bottom: 1rem;
+        }
+        .advisor-header h3 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem 0;
+        }
+        .advisor-header p {
+            color: var(--text-body);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        .advisor-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .advisor-form {
+                grid-template-columns: 1fr;
+            }
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-size: 0.8rem;
+            color: var(--text-white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .form-control {
+            background-color: #0b1118;
+            border: var(--border-thin);
+            padding: 0.75rem 1rem;
+            color: var(--text-white);
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        .form-control:focus {
+            border-color: var(--accent-gold);
+            outline: none;
+        }
+        .advisor-output {
+            grid-column: span 2;
+            background-color: rgba(11, 17, 24, 0.6);
+            border: var(--border-thin);
+            padding: 1.5rem;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-white);
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.2s;
+        }
+        @media (max-width: 768px) {
+            .advisor-output {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+                <li><a href="login.html" class="btn btn-primary">Member Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="sitemap-container">
+        
+        <div class="sitemap-hero">
+            <h1>Platform Directory & Sitemap</h1>
+            <p>Use our live indices to search and locate cover details, regional legal requirements, and account support coordinates [1].</p>
+        </div>
+
+        <!-- Controls (Live Search & Toggle Switch) -->
+        <div class="controls-panel">
+            <div class="search-group">
+                <svg class="search-icon" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+                <input type="text" id="sitemap-search" class="search-input" placeholder="Search pages and directories..." oninput="handleSearch(this.value)">
+            </div>
+            <div class="view-switch-group">
+                <button id="btn-html-view" class="switch-btn active" onclick="setViewMode('html')">User Directory</button>
+                <button id="btn-xml-view" class="switch-btn" onclick="setViewMode('xml')">SEO XML View</button>
+            </div>
+        </div>
+
+        <!-- Mode 1: Human-Readable Directory Grid -->
+        <div id="html-sitemap-view" class="sitemap-grid">
+            
+            <!-- Category: Primary Site pages -->
+            <div class="sitemap-col">
+                <h3>Core Channels</h3>
+                <ul class="link-list">
+                    <li><a href="index.html" class="sitemap-link">Homepage Portal</a><span class="status-indicator"></span></li>
+                    <li><a href="plans.html" class="sitemap-link">Featured Pricing Plans</a><span class="status-indicator"></span></li>
+                    <li><a href="about.html" class="sitemap-link">About Agency & History</a><span class="status-indicator"></span></li>
+                    <li><a href="faq.html" class="sitemap-link">Frequently Asked Questions</a><span class="status-indicator"></span></li>
+                    <li><a href="contact.html" class="sitemap-link">Contact & Dispatch Info</a><span class="status-indicator"></span></li>
+                </ul>
+            </div>
+
+            <!-- Category: Underwriting & Support -->
+            <div class="sitemap-col">
+                <h3>Underwriting Details</h3>
+                <ul class="link-list">
+                    <li><a href="more.html" class="sitemap-link">Detailed SADC Logistics Guide</a><span class="status-indicator"></span></li>
+                    <li><a href="guarantee.html" class="sitemap-link">Our Service Guarantees</a><span class="status-indicator"></span></li>
+                    <li><a href="paymentplan.html" class="sitemap-link">Secure Payment Portal</a><span class="status-indicator"></span></li>
+                    <li><a href="T&C.html" class="sitemap-link">Terms and Conditions</a><span class="status-indicator"></span></li>
+                    <li><a href="privacypolicy.html" class="sitemap-link">Legal Privacy Policy</a><span class="status-indicator"></span></li>
+                </ul>
+            </div>
+
+            <!-- Category: Member Accounts & Assets -->
+            <div class="sitemap-col">
+                <h3>Member Portal</h3>
+                <ul class="link-list">
+                    <li><a href="login.html" class="sitemap-link">Member Authentication Log In</a><span class="status-indicator"></span></li>
+                    <li><a href="dashboard.html" class="sitemap-link">Client Account Dashboard</a><span class="status-indicator"></span></li>
+                    <li><a href="forum.html" class="sitemap-link">Community Discussion Forum</a><span class="status-indicator"></span></li>
+                    <li><a href="elements.html" class="sitemap-link">Theme UI Style Guide</a><span class="status-indicator"></span></li>
+                    <li><a href="404.html" class="sitemap-link">Error 404 Radar Simulation</a><span class="status-indicator"></span></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Mode 2: XML Pre-formatted code view (Advanced Feature) -->
+        <div id="xml-sitemap-view" class="xml-view-container">
+            <pre class="xml-code-block"><code id="xml-content">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://crossborderlifecover.org/index.html&lt;/loc&gt;
+    &lt;lastmod&gt;2026-06-10&lt;/lastmod&gt;
+    &lt;changefreq&gt;weekly&lt;/changefreq&gt;
+    &lt;priority&gt;1.0&lt;/priority&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://crossborderlifecover.org/plans.html&lt;/loc&gt;
+    &lt;lastmod&gt;2026-06-10&lt;/lastmod&gt;
+    &lt;changefreq&gt;weekly&lt;/changefreq&gt;
+    &lt;priority&gt;0.9&lt;/priority&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://crossborderlifecover.org/more.html&lt;/loc&gt;
+    &lt;lastmod&gt;2026-06-10&lt;/lastmod&gt;
+    &lt;changefreq&gt;monthly&lt;/changefreq&gt;
+    &lt;priority&gt;0.8&lt;/priority&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://crossborderlifecover.org/guarantee.html&lt;/loc&gt;
+    &lt;lastmod&gt;2026-06-10&lt;/lastmod&gt;
+    &lt;changefreq&gt;yearly&lt;/changefreq&gt;
+    &lt;priority&gt;0.7&lt;/priority&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://crossborderlifecover.org/paymentplan.html&lt;/loc&gt;
+    &lt;lastmod&gt;2026-06-10&lt;/lastmod&gt;
+    &lt;changefreq&gt;yearly&lt;/changefreq&gt;
+    &lt;priority&gt;0.7&lt;/priority&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://crossborderlifecover.org/elements.html&lt;/loc&gt;
+    &lt;lastmod&gt;2026-06-10&lt;/lastmod&gt;
+    &lt;changefreq&gt;monthly&lt;/changefreq&gt;
+    &lt;priority&gt;0.5&lt;/priority&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;
+            </code></pre>
+        </div>
+
+        <!-- Extra Feature: Interactive Cover Plan Advisor -->
+        <div class="advisor-widget">
+            <div class="advisor-header">
+                <h3>SADC Repatriation Plan Advisor</h3>
+                <p>Select your origin country and target age group to find the recommended policy option [1].</p>
+            </div>
+            
+            <div class="advisor-form">
+                <div class="form-group">
+                    <label for="advisor-country">Destination SADC Country</label>
+                    <select id="advisor-country" class="form-control" onchange="runPlanAdvisor()">
+                        <option value="Zimbabwe">Zimbabwe</option>
+                        <option value="Lesotho">Lesotho</option>
+                        <option value="Mozambique">Mozambique</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Zambia">Zambia</option>
+                        <option value="Kenya">Kenya (Air Flight)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="advisor-age">Age Band of Insured</label>
+                    <select id="advisor-age" class="form-control" onchange="runPlanAdvisor()">
+                        <option value="young">18 - 35 Years</option>
+                        <option value="mid">36 - 65 Years</option>
+                        <option value="senior">66+ Years</option>
+                    </select>
+                </div>
+
+                <div id="advisor-result" class="advisor-output">
+                    Please select your parameters above to load a recommended policy route [1].
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Blue "Contact us" Floating Widget -->
+    <a href="contact.html" class="contact-widget-float">
+        <svg viewBox="0 0 24 24">
+            <path d="M20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M20,8l-8,5L4,8V6l8,5l8-5V8z"/>
+        </svg>
+        Contact us
+    </a>
+
+    <!-- Universal Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h5>Information</h5>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                    <li><a href="plans.html">Our Plans</a></li>
+                    <li><a href="faq.html">Search Terms</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="more.html">Advanced Search</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Why Choose Us</h5>
+                <ul>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="paymentplan.html">Secure payment</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                    <li><a href="guarantee.html">Guarantee</a></li>
+                    <li><a href="T&C.html">Terms & Conditions</a></li>
+                    <li><a href="about.html">History</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>My Account</h5>
+                <ul>
+                    <li><a href="dashboard.html">Member Dashboard</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Contacts</h5>
+                <div class="footer-contact-info">
+                    <p>E-mail: <a href="mailto:info@crossboarder.org" style="color: #777; text-decoration: none;">info@crossboarder.org</a></p>
+                    <p style="margin-top: 0.75rem;">Telephone: <span>+3(800) 2345-6789</span></p>
+                    <p style="margin-top: 0.75rem;">9am to 10pm everyday</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h5>Sign Up for Our Newsletter:</h5>
+                <form class="newsletter-box" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; 2026 Cross Border Life Cover. All Rights Reserved.
+            </div>
+            <div class="social-and-top">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3.3 0-4 2.7-4 4v3z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.6c-.9.4-1.8.6-2.8.7 1-.6 1.8-1.6 2.2-2.7-1 .6-2 1-3.1 1.2-.9-1-2.2-1.6-3.6-1.6-2.7 0-5 2.2-5 5 0 .4 0 .8.1 1.1C7.7 8.1 4.1 6.1 1.7 3.1c-.4.8-.7 1.7-.7 2.7 0 1.7.9 3.2 2.2 4.1-.8 0-1.6-.2-2.2-.6v.1c0 2.4 1.7 4.4 4 4.9-.4.1-.9.2-1.4.2-.3 0-.7 0-1-.1.6 2 2.5 3.5 4.7 3.5-1.7 1.4-4 2.2-6.4 2.2-.4 0-.8 0-1.2-.1 2.3 1.5 5 2.3 7.9 2.3 9.5 0 14.7-7.9 14.7-14.7v-.7c1-.7 1.8-1.6 2.5-2.6z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Google Plus">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 11.5v2.1h4.4c-.2 1.1-1.3 3.3-4.4 3.3-2.7 0-4.9-2.2-4.9-5s2.2-5 4.9-5c1.5 0 2.6.7 3.2 1.2l1.6-1.6C11.3 5.5 9.6 4.6 7.5 4.6 3.9 4.6 1 7.5 1 11.1s2.9 6.5 6.5 6.5c3.8 0 6.3-2.7 6.3-6.4 0-.4 0-.8-.1-1.2H7.5zm15.5-.9h-2v-2h-1.5v2h-2v1.5h2v2h1.5v-2h2z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.1c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-.1.4-.2.4-1-.4-2.2-.5-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.5 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1 5.7.2 4.8.4 4 .7c-.8.3-1.5.7-2.1 1.4-.7.6-1.1 1.3-1.4 2.1-.3.8-.5 1.7-.6 3C.1 8.5 0 8.9 0 12s.1 3.5.1 4.8c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.1.6.7 1.3 1.1 2.1 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 4.8.1s3.5-.1 4.8-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.1-1.4.7-.6 1.1-1.3 1.4-2.1.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-4.8s-.1-3.5-.1-4.8c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.1-.6-.7-1.3-1.1-2.1-1.4-.8-.3-1.7-.5-3-.6C15.7.1 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.3c-2.3 0-4.1-1.8-4.1-4.1s1.8-4.1 4.1-4.1 4.1 1.8 4.1 4.1-1.8 4.1-4.1 4.1zm6.4-11c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5 1.5-.7 1.5-1.5z"/></svg>
+                    </a>
+                </div>
+                <a href="#" class="back-to-top-btn" aria-label="Back to top">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- REAL-TIME INTERACTIVE JS FOR SPECIAL FEATURES -->
+    <script>
+        // --- 1. Dynamic Search & Highlight/Filter System ---
+        function handleSearch(query) {
+            const cleanQuery = query.toLowerCase().trim();
+            const columns = document.querySelectorAll('.sitemap-col');
+            
+            columns.forEach(col => {
+                let colHasMatch = false;
+                const links = col.querySelectorAll('.sitemap-link');
+                
+                links.forEach(link => {
+                    const text = link.textContent.toLowerCase();
+                    const parentLi = link.closest('li');
+                    
+                    if (cleanQuery === "" || text.includes(cleanQuery)) {
+                        parentLi.style.display = 'flex';
+                        colHasMatch = true;
+                        
+                        // Highlight match styling
+                        if (cleanQuery !== "") {
+                            link.style.color = 'var(--accent-gold)';
+                        } else {
+                            link.style.color = '';
+                        }
+                    } else {
+                        parentLi.style.display = 'none';
+                        link.style.color = '';
+                    }
+                });
+                
+                // Show or hide column based on content matching results
+                if (colHasMatch) {
+                    col.style.display = 'block';
+                    if (cleanQuery !== "") {
+                        col.classList.add('highlight-match');
+                    } else {
+                        col.classList.remove('highlight-match');
+                    }
+                } else {
+                    col.style.display = 'none';
+                    col.classList.remove('highlight-match');
+                }
+            });
+        }
+
+        // --- 2. HTML vs XML View Mode Switcher ---
+        function setViewMode(mode) {
+            const htmlView = document.getElementById('html-sitemap-view');
+            const xmlView = document.getElementById('xml-sitemap-view');
+            const btnHtml = document.getElementById('btn-html-view');
+            const btnXml = document.getElementById('btn-xml-view');
+
+            if (mode === 'html') {
+                htmlView.style.display = 'grid';
+                xmlView.style.display = 'none';
+                btnHtml.classList.add('active');
+                btnXml.classList.remove('active');
+            } else {
+                htmlView.style.display = 'none';
+                xmlView.style.display = 'block';
+                btnHtml.classList.remove('active');
+                btnXml.classList.add('active');
+            }
+        }
+
+       // --- 3. SADC Plan Advisor Logistical Calculator ---
+        function runPlanAdvisor() {
+            const country = document.getElementById('advisor-country').value;
+            const ageGroup = document.getElementById('advisor-age').value;
+            const resultBox = document.getElementById('advisor-result');
+
+            if (!country || !ageGroup || !resultBox) return;
+
+            let planName = "";
+            let premiumValue = "";
+            let pathQuery = "";
+
+            if (ageGroup === 'young') {
+                if (country === 'Lesotho' || country === 'Eswatini') {
+                    planName = "Entry Plan 2 (R25,000 cover)";
+                    premiumValue = "R120/mo";
+                    pathQuery = "entry2";
+                } else {
+                    planName = "Mid Plan 1 (R40,000 cover)";
+                    premiumValue = "R180/mo";
+                    pathQuery = "mid1";
+                }
+            } else if (ageGroup === 'mid') {
+                if (country === 'Zimbabwe' || country === 'Mozambique' || country === 'Malawi') {
+                    planName = "Mid Plan 2 (R60,000 repatriation special)";
+                    premiumValue = "R250/mo";
+                    pathQuery = "mid2";
+                } else {
+                    planName = "Mid Plan 1 (R40,000 cover)";
+                    premiumValue = "R180/mo";
+                    pathQuery = "mid1";
+                }
+            } else {
+                planName = "Premium Plan 1 (R80,000 international transit)";
+                premiumValue = "R350/mo";
+                pathQuery = "premium1";
+            }
+
+            // Update box content and dynamically route the query to plans.html
+            resultBox.innerHTML = `
+                <div style="width: 100%; text-align: center;">
+                    <p style="margin: 0 0 0.5rem 0; font-size: 0.9rem; color: var(--text-body);">Recommended SADC Policy Option:</p>
+                    <h4 style="color: var(--accent-gold); font-size: 1.15rem; margin: 0 0 0.75rem 0; font-family: var(--font-serif);">${planName} at <span style="color: #fff;">${premiumValue}</span></h4>
+                    <a href="plans.html?plan=${pathQuery}" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.8rem; background-color: var(--accent-gold); color: #0b1118; border: none; display: inline-block;">Configure This Plan [1]</a>
+                </div>
+            `;
+            resultBox.style.borderColor = 'var(--accent-gold)';
+        }
+
+        // Initialize calculator with pre-selected parameters on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            runPlanAdvisor();
+        });
+    </script>
+
+    <!-- Unified scripting dependencies loaded sequentially -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

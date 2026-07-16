@@ -1,0 +1,164 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Account - Cross Border Life Cover</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation (Matches your existing design) -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero" style="padding: 6rem 2rem 2rem 2rem;">
+        <h1>Join Cross Border Life Cover</h1>
+        <p>Register your member account securely to select, manage, and verify your funeral coverage plans [1].</p>
+    </section>
+
+    <!-- Content Divider -->
+    <div class="gold-divider">
+        <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    </div>
+
+    <!-- Sign Up Form (Styled with your native CSS form classes) -->
+    <section class="section-container" style="max-width: 700px;">
+        <div class="form-box">
+            <h2 class="form-title">Create Account</h2>
+            <form id="signup-form">
+                
+                <div class="form-row">
+                    <label class="form-label" for="full-name">Full Name</label>
+                    <input type="text" id="full-name" class="form-input" required placeholder="Enter your full name...">
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" class="form-input" required placeholder="Enter your email address...">
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-input" required placeholder="Create a strong password...">
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 2rem;">Create Account</button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem;">
+                <p>Already have an account? <a href="login.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">Log In Here</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Divider -->
+    <div class="gold-divider" style="margin-top: 6rem;">
+         <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    </div>
+
+    <!-- Blue "Contact us" Floating Widget -->
+    <a href="https://wa.me/27123456789?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services." class="contact-widget-float">
+        <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+        Contact us
+    </a>
+
+    <!-- Universal Footer (Matches your other pages) -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h5>Information</h5>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                    <li><a href="plans.html">Our Plans</a></li>
+                    <li><a href="faq.html">Search Terms</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="more.html">Advanced Search</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Why Choose Us</h5>
+                <ul>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="paymentplan.html">Secure payment</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                    <li><a href="guarantee.html">Guarantee</a></li>
+                    <li><a href="T&C.html">Terms & Conditions</a></li>
+                    <li><a href="about.html">History</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>My Account</h5>
+                <ul>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Contacts</h5>
+                <div class="footer-contact-info">
+                    <p>E-mail: <a href="mailto:info@crossboarderlifecover.org" style="color: #777; text-decoration: none;">info@crossboarder.org</a></p>
+                    <p style="margin-top: 0.75rem;">Telephone: <span>+27834924837</span></p>
+                    <p style="margin-top: 0.75rem;">9am to 10pm everyday</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h5>Sign Up for Our Newsletter:</h5>
+                <form class="newsletter-box">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; 2026 Cross Border Life Cover. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Client Integrations -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Redirect the user immediately if they are already logged in
+        redirectIfAuthenticated();
+
+        document.getElementById("signup-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const fullName = document.getElementById("full-name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                // Call signUp function declared in auth.js
+                await signUp(email, password, fullName);
+                alert("Account created successfully! Please check your email inbox to verify your email address before attempting to log in.");
+                window.location.href = "login.html";
+            } catch (error) {
+                alert("Sign Up Error: " + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,707 @@
+<!-- products.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funeral Products & Accessories - Cross Border Life Cover</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Shop Layout Structure */
+        .shop-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            align-items: start;
+        }
+
+        /* Sidebar Filter Panels */
+        .shop-sidebar {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 2rem 1.5rem;
+        }
+
+        .filter-group {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            padding-bottom: 1.5rem;
+        }
+
+        .filter-group:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .filter-title {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .filter-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .filter-links li {
+            margin-bottom: 0.6rem;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-body);
+        }
+
+        .filter-links label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .filter-links input[type="checkbox"] {
+            accent-color: var(--accent-gold);
+            cursor: pointer;
+        }
+
+        .filter-links a {
+            color: var(--text-body);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .filter-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .filter-count {
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Header Cart Indicator */
+        .cart-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-white);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-decoration: none;
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 0.4rem 1rem;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .cart-indicator:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        .cart-badge {
+            background-color: var(--accent-gold);
+            color: #0b1118;
+            font-weight: 700;
+            border-radius: 50%;
+            padding: 0.1rem 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        /* Top Category Navigation Tabs */
+        .category-tab-bar {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: var(--border-thin);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-family: var(--font-serif);
+            color: var(--text-body);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .category-tab.active, .category-tab:hover {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        /* Toolbar Controls */
+        .toolbar-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-body);
+        }
+
+        .toolbar-select {
+            background-color: var(--bg-primary);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            color: var(--text-white);
+            padding: 0.4rem 0.75rem;
+            outline: none;
+            margin-left: 0.5rem;
+            font-family: var(--font-sans);
+        }
+
+        /* Product Catalog Grid */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            min-height: 400px;
+        }
+
+        .product-card {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+        }
+
+        .product-card.hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .product-image-wrap {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-image-wrap img {
+            transform: scale(1.03);
+        }
+
+        .product-title {
+            font-family: var(--font-serif);
+            color: var(--text-white);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .product-price {
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Magento Style enquire button */
+        .btn-add-cart {
+            background-color: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            padding: 0.6rem 1rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .btn-add-cart:hover {
+            background-color: var(--accent-gold);
+            color: #0b1118;
+        }
+
+        /* Bottom Pagination */
+        .catalog-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 4rem;
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+        }
+
+        .catalog-pagination a {
+            color: var(--text-body);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: var(--border-thin);
+            transition: all 0.2s ease;
+        }
+
+        .catalog-pagination a:hover, .catalog-pagination span.current {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .catalog-pagination span.current {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-gold);
+        }
+
+        @media (max-width: 992px) {
+            .shop-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+                <li>
+                   
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Shop Layout -->
+    <main class="shop-container">
+        
+        <!-- Left Sidebar Filter Blocks -->
+        <aside class="shop-sidebar">
+            
+            <!-- 1. Product Types -->
+            <div class="filter-group">
+                <div class="filter-title">Product types</div>
+                <ul class="filter-links">
+                    <li><label><input type="checkbox" checked onchange="filterProductType(this, 'simple')"> Simple product</label> <span class="filter-count">10</span></li>
+                    <li><label><input type="checkbox" checked onchange="filterProductType(this, 'options')"> Options product</label> <span class="filter-count">5</span></li>
+                    <li><label><input type="checkbox" checked onchange="filterProductType(this, 'configurable')"> Configurable products</label> <span class="filter-count">5</span></li>
+                </ul>
+            </div>
+
+            <!-- 2. Price ranges in Rands -->
+            <div class="filter-group">
+                <div class="filter-title">Price</div>
+                <ul class="filter-links">
+                    <li><label><input type="radio" name="price-filter" checked> All Prices</label></li>
+                    <li><label><input type="radio" name="price-filter"> R0.00 - R30,000.00</label></li>
+                    <li><label><input type="radio" name="price-filter"> R30,000.00 and above</label></li>
+                </ul>
+            </div>
+
+            <!-- 3. Manufacturer -->
+            <div class="filter-group">
+                <div class="filter-title">Manufacturer</div>
+                <ul class="filter-links">
+                    <li><label><input type="checkbox" checked> RSA</label> <span class="filter-count">6</span></li>
+                    <li><label><input type="checkbox" checked> China</label> <span class="filter-count">2</span></li>
+                    <li><label><input type="checkbox" checked> Germany</label> <span class="filter-count">7</span></li>
+                    <li><label><input type="checkbox" checked> France</label> <span class="filter-count">5</span></li>
+                </ul>
+            </div>
+
+            <!-- 4. Collapse Brand Filters -->
+            <div class="filter-group">
+                <div class="filter-title">Brand</div>
+                <ul class="filter-links">
+                    <li><a href="#">Protective</a></li>
+                    <li><a href="#">Hardware</a></li>
+                    <li><a href="#">Exterior Material</a></li>
+                    <li><a href="#">Gasket</a></li>
+                    <li><a href="#">Exterior Color</a></li>
+                </ul>
+            </div>
+
+            <!-- 5. Compare Products -->
+            <div class="filter-group">
+                <div class="filter-title">Compare Products</div>
+                <p style="font-size: 0.8rem; color: var(--text-body); font-style: italic;">You have no items to compare.</p>
+            </div>
+
+            <!-- 6. Wish List -->
+            <div class="filter-group">
+                <div class="filter-title">My Wish List</div>
+                <p style="font-size: 0.8rem; color: var(--text-body); font-style: italic;">You have no items in your wish list.</p>
+            </div>
+
+        </aside>
+
+        <!-- Right Catalog Container -->
+        <section class="shop-content">
+            
+            <!-- Category Tabs Navigation -->
+            <div class="category-tab-bar" id="categoryTabBar">
+                <button class="category-tab active" data-target="coffins">Coffins</button>
+                <button class="category-tab" data-target="urns">Cremation Urns</button>
+                <button class="category-tab" data-target="gravestones">Gravestones</button>
+                <button class="category-tab" data-target="accessories">Memorial Stones & Acc.</button>
+                <button class="category-tab" data-target="flowers">Funeral Flowers</button>
+            </div>
+
+            <!-- Toolbar Controls -->
+            <div class="toolbar-controls">
+                <div>
+                    Sort By: 
+                    <select class="toolbar-select">
+                        <option>Position</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                    </select>
+                </div>
+                <div>
+                    Show: 
+                    <select class="toolbar-select">
+                        <option>9</option>
+                        <option>18</option>
+                        <option>27</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Main Product Catalog (ZAR Converted) -->
+            <div class="catalog-grid" id="productGrid">
+                
+                <!-- COFFINS -->
+                <div class="product-card" data-category="coffins" data-type="simple">
+                    <div class="product-image-wrap">
+                        <img src="images/coffin.jpeg" alt="Traditional Pine">
+                    </div>
+                    <div class="product-title">Traditional Pine</div>
+                    <div class="product-price">R36,220.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <div class="product-card" data-category="coffins" data-type="configurable">
+                    <div class="product-image-wrap">
+                        <img src="images/coffin.jpeg" alt="Steel Casket">
+                    </div>
+                    <div class="product-title">Star Legacy's Platinum Rose Deluxe Casket - 18 Gauge Steel</div>
+                    <div class="product-price">R47,025.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <div class="product-card" data-category="coffins" data-type="simple">
+                    <div class="product-image-wrap">
+                        <img src="images/coffin.jpeg" alt="Mahogany Casket">
+                    </div>
+                    <div class="product-title">Star Legacy Majestic Mahogany Casket</div>
+                    <div class="product-price">R34,720.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <div class="product-card" data-category="coffins" data-type="options">
+                    <div class="product-image-wrap">
+                        <img src="images/coffin.jpeg" alt="Midnight Blue Casket">
+                    </div>
+                    <div class="product-title">Star Legacy Deluxe Casket Midnight Blue</div>
+                    <div class="product-price">R55,420.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <!-- CREMATION URNS -->
+                <div class="product-card hidden" data-category="urns" data-type="simple">
+                    <div class="product-image-wrap">
+                        <img src="images/urn.jpg" alt="Classic Bronze Urn">
+                    </div>
+                    <div class="product-title">Classic Bronze Memorial Urn</div>
+                    <div class="product-price">R3,250.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <div class="product-card hidden" data-category="urns" data-type="options">
+                    <div class="product-image-wrap">
+                        <img src="images/urn.jpg" alt="Elegant Marble Urn">
+                    </div>
+                    <div class="product-title">Elegant Marble Cremation Urn</div>
+                    <div class="product-price">R4,800.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <div class="product-card hidden" data-category="urns" data-type="configurable">
+                    <div class="product-image-wrap">
+                        <img src="images/urn.jpg" alt="Eco Tree Urn">
+                    </div>
+                    <div class="product-title">Biodegradable Eco Tree Urn</div>
+                    <div class="product-price">R2,100.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <!-- GRAVESTONES -->
+                <div class="product-card hidden" data-category="gravestones" data-type="simple">
+                    <div class="product-image-wrap">
+                        <img src="images/Gravestone.png" alt="Black Granite Headstone">
+                    </div>
+                    <div class="product-title">Imperial Black Granite Upright Headstone</div>
+                    <div class="product-price">R18,500.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <div class="product-card hidden" data-category="gravestones" data-type="configurable">
+                    <div class="product-image-wrap">
+                        <img src="images/Gravestone.png" alt="Companion Stone">
+                    </div>
+                    <div class="product-title">Absolute Grey Companion Double Tombstone</div>
+                    <div class="product-price">R29,900.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <!-- MEMORIAL STONES & ACC -->
+                <div class="product-card hidden" data-category="accessories" data-type="simple">
+                    <div class="product-image-wrap">
+                        <img src="images/Flowers.jpeg alt="Laser Plaque">
+                    </div>
+                    <div class="product-title">Laser-Engraved Granite Portrait Plaque</div>
+                    <div class="product-price">R3,800.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <div class="product-card hidden" data-category="accessories" data-type="options">
+                    <div class="product-image-wrap">
+                        <img src="images/Gravestone.png" alt="Brass Vase">
+                    </div>
+                    <div class="product-title">Solid Brass Headstone Flower Vase Attachment</div>
+                    <div class="product-price">R2,200.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <!-- FUNERAL FLOWERS -->
+                <div class="product-card hidden" data-category="flowers" data-type="simple">
+                    <div class="product-image-wrap">
+                        <img src="images/Flowers.jpeg" alt="Casket Spray">
+                    </div>
+                    <div class="product-title">Majestic White Lily Casket Spray</div>
+                    <div class="product-price">R1,850.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+                <div class="product-card hidden" data-category="flowers" data-type="simple">
+                    <div class="product-image-wrap">
+                        <img src="images/Flowers.jpeg alt="Sympathy Wreath">
+                    </div>
+                    <div class="product-title">Standard Sympathy Rose Wreath</div>
+                    <div class="product-price">R850.00</div>
+                    <button class="btn-add-cart" onclick="addToCart()">enquire</button>
+                </div>
+
+            </div>
+
+            <!-- Standard Magento bottom Pagination bar -->
+            <div class="catalog-pagination">
+                <a href="#">Previous</a>
+                <span class="current">1</span>
+                <a href="#">2</a>
+                <a href="#">Next</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    
+    <!-- Blue "Contact us" Floating Widget -->
+<a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services." class="contact-widget-float">
+    <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    Contact us
+</a>
+
+    <!-- Universal Footer () -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h5>Information</h5>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                    <li><a href="plans.html">Our Plans</a></li>
+                    <li><a href="faq.html">Search Terms</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="more.html">Advanced Search</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Why Choose Us</h5>
+                <ul>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="paymentplan.html">Secure payment</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                    <li><a href="guarantee.html">Guarantee</a></li>
+                    <li><a href="T&C.html">Terms & Conditions</a></li>
+                    <li><a href="about.html">History</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>My Account</h5>
+                <ul>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Contacts</h5>
+                <div class="footer-contact-info">
+                    <p>E-mail: <a href="info@crossboarderlifecover.org" style="color: #777; text-decoration: none;">info@crossboarder.org</a></p>
+                    <p style="margin-top: 0.75rem;">Telephone: <span>+27-83492-4837</span></p>
+					<p>Whatsapp: <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services."  style="color: #777; text-decoration: none;"><p><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.55 0 .24 5.3.24 11.82c0 2.08.54 4.1 1.58 5.88L0 24l6.48-1.7a11.8 11.8 0 0 0 5.58 1.42h.01c6.51 0 11.82-5.3 11.82-11.82 0-3.16-1.23-6.13-3.37-8.42zM12.07 21.7a9.82 9.82 0 0 1-5-1.37l-.36-.21-3.85 1.01 1.03-3.75-.24-.38a9.82 9.82 0 1 1 8.42 4.7zm5.39-7.36c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.29.5 1.73.64.73.23 1.39.2 1.92.12.59-.09 1.77-.72 2.02-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35z"/>
+    </svg> <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services."  style="color: #777; text-decoration: none;"></a></p></a></p>
+                    <p style="margin-top: 0.75rem;">9am to 10pm everyday</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h5>Sign Up for Our Newsletter:</h5>
+                <form class="newsletter-box" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; 2026 Cross Border Life Cover. All Rights Reserved.
+            </div>
+            <div class="social-and-top">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3.3 0-4 2.7-4 4v3z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.6c-.9.4-1.8.6-2.8.7 1-.6 1.8-1.6 2.2-2.7-1 .6-2 1-3.1 1.2-.9-1-2.2-1.6-3.6-1.6-2.7 0-5 2.2-5 5 0 .4 0 .8.1 1.1C7.7 8.1 4.1 6.1 1.7 3.1c-.4.8-.7 1.7-.7 2.7 0 1.7.9 3.2 2.2 4.1-.8 0-1.6-.2-2.2-.6v.1c0 2.4 1.7 4.4 4 4.9-.4.1-.9.2-1.4.2-.3 0-.7 0-1-.1.6 2 2.5 3.5 4.7 3.5-1.7 1.4-4 2.2-6.4 2.2-.4 0-.8 0-1.2-.1 2.3 1.5 5 2.3 7.9 2.3 9.5 0 14.7-7.9 14.7-14.7v-.7c1-.7 1.8-1.6 2.5-2.6z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Google Plus">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 11.5v2.1h4.4c-.2 1.1-1.3 3.3-4.4 3.3-2.7 0-4.9-2.2-4.9-5s2.2-5 4.9-5c1.5 0 2.6.7 3.2 1.2l1.6-1.6C11.3 5.5 9.6 4.6 7.5 4.6 3.9 4.6 1 7.5 1 11.1s2.9 6.5 6.5 6.5c3.8 0 6.3-2.7 6.3-6.4 0-.4 0-.8-.1-1.2H7.5zm15.5-.9h-2v-2h-1.5v2h-2v1.5h2v2h1.5v-2h2z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.1c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-.1.4-.2.4-1-.4-2.2-.5-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.5 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1 5.7.2 4.8.4 4 .7c-.8.3-1.5.7-2.1 1.4-.7.6-1.1 1.3-1.4 2.1-.3.8-.5 1.7-.6 3C.1 8.5 0 8.9 0 12s.1 3.5.1 4.8c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.1.6.7 1.3 1.1 2.1 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 4.8.1s3.5-.1 4.8-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.1-1.4.7-.6 1.1-1.3 1.4-2.1.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-4.8s-.1-3.5-.1-4.8c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.1-.6-.7-1.3-1.1-2.1-1.4-.8-.3-1.7-.5-3-.6C15.7.1 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.3c-2.3 0-4.1-1.8-4.1-4.1s1.8-4.1 4.1-4.1 4.1 1.8 4.1 4.1-1.8 4.1-4.1 4.1zm6.4-11c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5 1.5-.7 1.5-1.5z"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5c-1 .3-1.8 1.1-2.1 2.1C0 8 0 12 0 12s0 4 .5 5.8c.3 1 1.1 1.8 2.1 2.1 1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5c1-.3 1.8-1.1 2.1-2.1.5-1.8.5-5.8.5-5.8s0-4-.5-5.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg>
+                    </a>
+                </div>
+                <a href="#" class="back-to-top-btn" aria-label="Back to top">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Client-side Interactive Filter Script -->
+    <script>
+        // Set up active tab selection and display changes
+        const tabs = document.querySelectorAll(".category-tab");
+        const cards = document.querySelectorAll(".product-card");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                // Set active class on buttons
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                const targetCategory = tab.getAttribute("data-target");
+
+                // Filter cards with a smooth transition
+                cards.forEach(card => {
+                    if (card.getAttribute("data-category") === targetCategory) {
+                        card.classList.remove("hidden");
+                        // Trigger simple browser repaint for transition
+                        void card.offsetWidth;
+                        card.style.opacity = "1";
+                    } else {
+                        card.style.opacity = "0";
+                        card.classList.add("hidden");
+                    }
+                });
+            });
+        });
+
+        // Interactive Sidebar Checkboxes (Product Type filtering)
+        function filterProductType(checkbox, type) {
+            const activeTab = document.querySelector(".category-tab.active").getAttribute("data-target");
+            
+            cards.forEach(card => {
+                if (card.getAttribute("data-category") === activeTab && card.getAttribute("data-type") === type) {
+                    if (checkbox.checked) {
+                        card.classList.remove("hidden");
+                        card.style.opacity = "1";
+                    } else {
+                        card.style.opacity = "0";
+                        card.classList.add("hidden");
+                    }
+                }
+            });
+        }
+
+        // Active Cart counter logic
+        let count = 0;
+        const cartBadge = document.getElementById("cartCount");
+
+        function addToCart() {
+            count++;
+            cartBadge.textContent = count;
+            
+            // Subtle temporary animation on cart pill
+            cartBadge.parentElement.style.borderColor = "var(--accent-gold)";
+            setTimeout(() => {
+                cartBadge.parentElement.style.borderColor = "rgba(197, 160, 89, 0.2)";
+            }, 500);
+        }
+    </script>
+    <!-- REPLACE: <script src="js/app.js"></script> -->
+    <!-- WITH THE FOLLOWING THREE SCRIPTS IN EXACT ORDER: -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

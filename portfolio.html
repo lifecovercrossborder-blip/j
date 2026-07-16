@@ -1,0 +1,703 @@
+<!-- portfolio.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio & Elements - Cross Border Life Cover</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Specific Styles for Interactive Components on this Page */
+        .progress-bar-container {
+            margin-bottom: 1.5rem;
+        }
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background-color: var(--bg-primary);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: var(--accent-gold);
+            transition: width 1s ease-in-out;
+        }
+
+        /* Counters Grid */
+        .counters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+        .counter-num {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 3.5rem;
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .counter-label {
+            font-size: 0.85rem;
+            color: var(--text-body);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Interactive Tabs */
+        .tabs-header {
+            display: flex;
+            border-bottom: var(--border-thin);
+            margin-bottom: 1.5rem;
+        }
+        .tab-trigger {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            font-family: var(--font-serif);
+            color: var(--text-body);
+            cursor: pointer;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .tab-trigger.active {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+        }
+        .tab-pane {
+            display: none;
+            color: var(--text-body);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+
+        /* Lists */
+        .service-lists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+        .service-list {
+            list-style: none;
+        }
+        .service-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+            color: var(--text-body);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .service-list li::before {
+            content: "•";
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        .team-member {
+            text-align: center;
+        }
+        .team-portrait {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border: var(--border-thin);
+            margin-bottom: 1.5rem;
+        }
+        .team-member h3 {
+            color: var(--accent-gold);
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+        .team-member p {
+            font-size: 0.85rem;
+            color: var(--text-body);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+    <nav class="nav-container">
+        <a href="index.html" class="logo-container">
+            <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="plans.html">Plans</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Contacts</a></li>
+			<a href="login.html" class="btn btn-primary">Member Log In</a>
+        </ul>
+    </nav>
+</header>
+
+    <!-- SECTION 1: Text Elements (edit 3) -->
+    <section class="section-container">
+        <h2 class="section-title">Text Elements</h2>
+        
+        <div style="margin-bottom: 3rem;">
+            <h1 style="color: var(--accent-gold); font-size: 2.8rem; margin-bottom: 1rem; font-family: var(--font-serif); font-weight: 400;">Heading Style 1</h1>
+            <p>Whether you would like to pre-plan <strong style="color: var(--text-white);">this is strong text</strong> funeral arrangements or you have just lost a loved one, these online resources can give you step-by-step guidance about things to consider and what needs to be done next along with exact funeral costs. While we hope you find this information helpful, we know that nothing replaces personal contact. Our knowledgeable and caring staff is available at any time to help you. If you have questions or need more information, please don't hesitate to contact us.</p>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <h2 style="color: var(--accent-gold); font-size: 2.2rem; margin-bottom: 1rem; font-family: var(--font-serif); font-weight: 400;">Heading Style 2</h2>
+            <p>Whether you would like to pre-plan <a href="#" style="color: var(--accent-gold); text-decoration: underline;">this is inline link</a> funeral arrangements or you have just lost a loved one, these online resources can give you step-by-step guidance about things to consider and what needs to be done next along with exact funeral costs. While we hope you find this information helpful, we know that nothing replaces personal contact. Our knowledgeable and caring staff is available at any time to help you. If you have questions or need more information, please don't hesitate to contact us.</p>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <h3 style="color: var(--accent-gold); font-size: 1.8rem; margin-bottom: 1rem; font-family: var(--font-serif); font-weight: 400;">Heading Style 3</h3>
+            <p>Whether you would like to pre-plan <mark style="background-color: var(--accent-gold); color: #000; padding: 0.2rem 0.5rem;">this is marked out text</mark> funeral arrangements or you have just lost a loved one, these online resources can give you step-by-step guidance about things to consider and what needs to be done next along with exact funeral costs. While we hope you find this information helpful, we know that nothing replaces personal contact. Our knowledgeable and caring staff is available at any time to help you. If you have questions or need more information, please don't hesitate to contact us.</p>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <h4 style="color: var(--accent-gold); font-size: 1.4rem; margin-bottom: 1rem; font-family: var(--font-serif); font-weight: 400;">Heading Style 4</h4>
+            <p>Whether you would like to pre-plan funeral arrangements or you have just lost a loved one, these online resources can give you step-by-step guidance about things to consider and what needs to be done next along with exact funeral costs. While we hope you find this information helpful, we know that nothing replaces personal contact. Our knowledgeable and caring staff is available at any time to help you. If you have questions or need more information, please don't hesitate to contact us.</p>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <h5 style="color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem; font-family: var(--font-serif); font-weight: 400;">Heading Style 5</h5>
+            <p>Whether you would like to pre-plan funeral arrangements or you have just lost a loved one, these online resources can give you step-by-step guidance about things to consider and what needs to be done next along with exact funeral costs. While we hope you find this information helpful, we know that nothing replaces personal contact. Our knowledgeable and caring staff is available at any time to help you. If you have questions or need more information, please don't hesitate to contact us.</p>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <h6 style="color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 1rem; font-family: var(--font-serif); font-weight: 400;">Heading Style 6</h6>
+            <p>Whether you would like to pre-plan funeral arrangements or you have just lost a loved one, these online resources can give you step-by-step guidance about things to consider and what needs to be done next along with exact funeral costs. While we hope you find this information helpful, we know that nothing replaces personal contact. Our knowledgeable and caring staff is available at any time to help you. If you have questions or need more information, please don't hesitate to contact us.</p>
+        </div>
+    </section>
+
+    <div class="gold-divider">
+        <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    </div>
+
+    <!-- SECTION 2: Split Lists and Testimonials (edit 15, 20, 24) -->
+    <section class="section-container">
+        
+        <div class="service-lists-grid">
+            <div>
+                <h3 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 1.5rem; text-transform: uppercase;">Professional Services</h3>
+                <ul class="service-list">
+                    <li>Professional Service Fee</li>
+                    <li>Transfer into our Care</li>
+                    <li>Embalming / Mortuary Care</li>
+                    <li>Casket Choice</li>
+                    <li>Hearse Hire</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 1.5rem; text-transform: uppercase;">Support Guides</h3>
+                <ul class="service-list">
+                    <li>Funeral Wishes</li>
+                    <li>Coping with grief</li>
+                    <li>Helping friends</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="background-color: var(--bg-card); border: var(--border-thin); padding: 3rem; margin: 4rem 0;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-white); font-style: italic; margin-bottom: 1.5rem;">
+                "Thank you for your help and compassion in guiding us through this very difficult time. The assistance you and all your staff provided is much appreciated. You did an outstanding job!"
+            </p>
+            <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;">- Mark Johnson</h4>
+        </div>
+    </section>
+
+    <div class="gold-divider">
+        <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    </div>
+
+    <!-- SECTION 3: Form Elements (edit 7) -->
+    <section class="section-container" style="max-width: 700px;">
+        <div class="form-box">
+            <h2 class="form-title">Get Started</h2>
+            <form id="leadFormDemo">
+                <div class="form-row">
+                    <label class="form-label" for="txt1">Text Input:</label>
+                    <input type="text" id="txt1" class="form-input" placeholder="Type here...">
+                </div>
+                <div class="form-row">
+                    <label class="form-label" for="txt2">Text Input:</label>
+                    <input type="text" id="txt2" class="form-input" required placeholder="This field is required...">
+                    <span style="color: #ff4d4d; font-size: 0.75rem; display: block; margin-top: 0.25rem;">*required.</span>
+                </div>
+                <div class="form-row">
+                    <label class="form-label" for="area1">Text Area Field:</label>
+                    <textarea id="area1" class="form-input" rows="5" style="resize: none;" placeholder="Message..."></textarea>
+                </div>
+                
+                <div class="form-row" style="display: flex; gap: 3rem; margin-top: 2rem;">
+                    <div>
+                        <label class="form-label">Checkboxes</label>
+                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; cursor: pointer;">
+                            <input type="checkbox" name="chk" style="margin-right: 0.5rem;"> Checkbox label
+                        </label>
+                        <label style="display: block; font-size: 0.9rem; cursor: pointer;">
+                            <input type="checkbox" name="chk" style="margin-right: 0.5rem;"> Checkbox label
+                        </label>
+                    </div>
+                    <div>
+                        <label class="form-label">Radios</label>
+                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; cursor: pointer;">
+                            <input type="radio" name="rad" style="margin-right: 0.5rem;"> Radio label
+                        </label>
+                        <label style="display: block; font-size: 0.9rem; cursor: pointer;">
+                            <input type="radio" name="rad" style="margin-right: 0.5rem;"> Radio label
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 2rem;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="gold-divider">
+        <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    </div>
+
+    <!-- SECTION 4: Interactive Tabs & Accordions (edit 6) -->
+    <section class="section-container" style="max-width: 900px;">
+        
+        <!-- Tabs Group -->
+        <div style="margin-bottom: 5rem;">
+            <h2 class="section-title">Tabs</h2>
+            <div class="tabs-header">
+                <button class="tab-trigger active" onclick="switchTab(event, 'tab1')">Tab Title 1</button>
+                <button class="tab-trigger" onclick="switchTab(event, 'tab2')">Tab Title 2</button>
+                <button class="tab-trigger" onclick="switchTab(event, 'tab3')">Tab Title 3</button>
+            </div>
+            <div id="tab1" class="tab-pane active">
+                <p>Whether you would like to pre-plan funeral arrangements or you have just lost a loved one, these online resources can give you step-by-step guidance about things to consider and what needs to be done next along with exact funeral costs. While we hope you find this information helpful, we know that nothing replaces personal contact. Our knowledgeable and caring staff is available at any time to help you. If you have questions or need more information, please don't hesitate to contact us.</p>
+            </div>
+            <div id="tab2" class="tab-pane">
+                <p>We are always happy to greet the new visitors on our site. Our blog and social media accounts are available to encourage communication and connection between clients and personnel and tell you more about us in the informal environments where we can have a dialogue instead of just a narrative like that.</p>
+            </div>
+            <div id="tab3" class="tab-pane">
+                <p>Site navigation is extremely intuitive and user-friendly. You will always know where you are now and will be able to skip from one page to another with a single mouse click. We use only trusted, verified content, so you can believe every word we are saying.</p>
+            </div>
+        </div>
+
+        <!-- Accordions Group -->
+        <div>
+            <h2 class="section-title">Accordions and Toggles</h2>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    24/7 Support
+                    <span>+</span>
+                </div>
+                <div class="accordion-content">
+                    <p>Our dedicated support team is available 24 hours a day, seven days a week and provides clients with immediate support for any issue.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Satisfaction Guarantee
+                    <span>+</span>
+                </div>
+                <div class="accordion-content">
+                    <p>We ensure that every family receives perfect care and absolute fulfillment of their logistical and cover plans.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Qualified Staff
+                    <span>+</span>
+                </div>
+                <div class="accordion-content">
+                    <p>Our compassionate, qualified South African and regional personnel handle administrative permits with dedicated expertise.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="gold-divider">
+        <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    </div>
+
+    <!-- SECTION 5: Tables & Pricing Comparison (edit 4 & 5) -->
+    <section class="section-container">
+        <h2 class="section-title" style="text-align: center;">Pricing Tables</h2>
+        
+        <!-- Dynamic ZAR Pricing Grid -->
+        <div class="pricing-grid" style="margin-bottom: 5rem;">
+            <div class="price-card">
+                <h3>Personal</h3>
+                <div class="price-val"><span>R</span>40,330</div>
+                <ul class="price-details">
+                    <li>1 Main Member Covered</li>
+                    <li>R25,000 Payout</li>
+                    <li>Standard Polished Coffin</li>
+                    <li>Unlimited Road Repatriation</li>
+                </ul>
+                <a href="#" class="btn btn-primary btn-price-action">Order Now</a>
+            </div>
+            <div class="price-card">
+                <h3>Professional</h3>
+                <div class="price-val"><span>R</span>1,610</div>
+                <ul class="price-details">
+                    <li>10 Dependent Members</li>
+                    <li>R100,000 Payout</li>
+                    <li>Premium Solid Wood Casket</li>
+                    <li>Unlimited Road Repatriation</li>
+                </ul>
+                <a href="#" class="btn btn-primary btn-price-action">Order Now</a>
+            </div>
+            <div class="price-card">
+                <h3>Business</h3>
+                <div class="price-val"><span>R</span>4,060</div>
+                <ul class="price-details">
+                    <li>25 Family Members Covered</li>
+                    <li>R400,000 Payout</li>
+                    <li>Bronze Casket & Granite Masonry</li>
+                    <li>Unlimited Road Repatriation</li>
+                </ul>
+                <a href="#" class="btn btn-primary btn-price-action">Order Now</a>
+            </div>
+            <div class="price-card">
+                <h3>Premium</h3>
+                <div class="price-val"><span>R</span>6,500</div>
+                <ul class="price-details">
+                    <li>150 Group Members Covered</li>
+                    <li>R1,000,000+ Payout Pool</li>
+                    <li>Custom Vault & Luxury Fleet</li>
+                    <li>Unlimited Road Repatriation</li>
+                </ul>
+                <a href="#" class="btn btn-primary btn-price-action">Order Now</a>
+            </div>
+        </div>
+
+        <!-- 3-Block Simple Pricing Grid -->
+        <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 5rem;">
+            <div class="price-card">
+                <h3>Personal</h3>
+                <div class="price-val"><span>R</span>980</div>
+                <p style="color: rgba(15,23,31,0.7); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-top: 1rem;">Simple Coffin & Transport Cover</p>
+                <div style="margin-top: 2rem;">
+                    <a href="#" class="btn btn-primary btn-price-action">Select</a>
+                </div>
+            </div>
+            <div class="price-card">
+                <h3>Professional</h3>
+                <div class="price-val"><span>R</span>1,610</div>
+                <p style="color: rgba(15,23,31,0.7); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-top: 1rem;">Vault & Granite Gravestone Package</p>
+                <div style="margin-top: 2rem;">
+                    <a href="#" class="btn btn-primary btn-price-action">Select</a>
+                </div>
+            </div>
+            <div class="price-card">
+                <h3>Business</h3>
+                <div class="price-val"><span>R</span>4,060</div>
+                <p style="color: rgba(15,23,31,0.7); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-top: 1rem;">Group Repatriation Service Package</p>
+                <div style="margin-top: 2rem;">
+                    <a href="#" class="btn btn-primary btn-price-action">Select</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specifications Table -->
+        <div style="background-color: var(--bg-card); border: var(--border-thin); padding: 1px; overflow-x: auto;">
+            <table class="pricing-comparison-table">
+                <thead>
+                    <tr>
+                        <th>Specifications</th>
+                        <th>Personal</th>
+                        <th>Professional</th>
+                        <th>Business</th>
+                        <th>Premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-label">Floral Arranging</td>
+                        <td>Micro & Small Flowers</td>
+                        <td>Small & Medium Flowers</td>
+                        <td>Medium & Large Flowers</td>
+                        <td>All Sizes Included</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-label">Floral Wreaths Count</td>
+                        <td>3 Flower Wreaths</td>
+                        <td>10 Flower Wreaths</td>
+                        <td>30 Flower Wreaths</td>
+                        <td>50 Flower Wreaths</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-label">Memorial Masonry</td>
+                        <td>Schedule Installation</td>
+                        <td>Schedule Installation</td>
+                        <td>Schedule Installation</td>
+                        <td>Schedule Installation</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="gold-divider">
+        <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    </div>
+
+    <!-- SECTION 6: Progress Bars & Counters (edit 19) -->
+    <section class="section-container">
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 5rem;">
+            <div>
+                <h2 class="section-title">Skills & Focus</h2>
+                
+                <div class="progress-bar-container">
+                    <div class="progress-label"><span>Leadership</span><span>85%</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-label"><span>Management</span><span>90%</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-label"><span>Innovation and creativity</span><span>75%</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-label"><span>Resilience</span><span>95%</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+            </div>
+            
+            <div style="background-color: var(--bg-card); border: var(--border-thin); padding: 3rem;">
+                <h3 style="font-family: var(--font-serif); color: var(--accent-gold); margin-bottom: 1.5rem; text-transform: uppercase;">Our Core Stature</h3>
+                <p style="font-size: 0.95rem; line-height: 1.8;">Our administrative, strategic, and logistical capabilities maintain complete stability across borders. Grieving families depend on our persistent operational strength during difficult moments.</p>
+            </div>
+        </div>
+
+        <!-- Counters -->
+        <div class="counters-grid">
+            <div>
+                <div class="counter-num">879</div>
+                <div class="counter-label">Funerals served</div>
+            </div>
+            <div>
+                <div class="counter-num">1025</div>
+                <div class="counter-label">Satisfied clients</div>
+            </div>
+            <div>
+                <div class="counter-num">329</div>
+                <div class="counter-label">Staff members</div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="gold-divider">
+        <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    </div>
+
+    <!-- SECTION 7: Our Team & Testimonials (edit 19, 20, 21) -->
+    <section class="section-container">
+        
+        <!-- South Africanized Team Grid -->
+        <h2 class="section-title" style="text-align: center;">Our Team</h2>
+        <p style="text-align: center; color: var(--text-body); max-width: 600px; margin: 0 auto 4rem auto;">
+            Our diverse, local South African and regional African diaspora specialists provide empathetic and professional care.
+        </p>
+
+        <div class="team-grid" style="margin-bottom: 6rem;">
+            <div class="team-member">
+                <img src="images/Chipo.jpg" class="team-portrait" alt="Chipo Moyo">
+                <h3>Chipo Moyo</h3>
+                <p>Company Founder & Diaspora Advocate</p>
+            </div>
+            <div class="team-member">
+                <img src="images/Sipho.jpg" class="team-portrait" alt="Sipho Dube">
+                <h3>Sipho Dube</h3>
+                <p>Chief Operating Officer</p>
+            </div>
+            <div class="team-member">
+                <img src="images/Tariro.jpg" class="team-portrait" alt="Tariro Ncube">
+                <h3>Tariro Ncube</h3>
+                <p>Senior Cross-Border Recruiter</p>
+            </div>
+        </div>
+
+        <!-- 6 Detailed Testimonial Blocks -->
+        <h2 class="section-title" style="text-align: center; margin-bottom: 5rem;">What Families Say</h2>
+        <div class="testimonial-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+            
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">Jack Thompson</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"Your service is often a source of inspiration. It simplifies our lives and makes usually complicated processes easy."</p>
+            </div>
+
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">Amanda Edwards</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"Your service has really cut my working time by 80%. It gives me goosebumps thinking about all that extra time I have."</p>
+            </div>
+
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">Adam Cooper</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"The guys at your company are amazing! Your service has added a great value to my life. I love that I can jump to your site any time and have access to support 24/7."</p>
+            </div>
+
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">Adam Smith</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"I just don't know how to describe your services... They are extraordinary! I am quite happy with them! Just keep up going this way!"</p>
+            </div>
+
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">Nick Harris</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"Great organization!! Your prompt answer became a pleasant surprise for me. You’ve rendered an invaluable service! Thank you very much!"</p>
+            </div>
+
+            <div class="card">
+                <h4 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem;">John Anderson</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; font-style: italic;">"I just want to thank you for your help. I was so pleased and grateful. Keep up the excellent work. Your site provides the best support I have ever encountered."</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Blue "Contact us" Floating Widget -->
+    <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services." class="contact-widget-float">
+    <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    Contact us
+</a>
+
+    <!-- Universal Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h5>Information</h5>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                    <li><a href="plans.html">Our Plans</a></li>
+                    <li><a href="faq.html">Search Terms</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="more.html">Advanced Search</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Why Choose Us</h5>
+                <ul>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="paymentplan.html">Secure payment</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                    <li><a href="guarantee.html">Guarantee</a></li>
+                    <li><a href="T&C.html">Terms & Conditions</a></li>
+                    <li><a href="about.html">History</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>My Account</h5>
+                <ul>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Contacts</h5>
+                <div class="footer-contact-info">
+                    <p>E-mail: <a href="info@crossboarderlifecover.org" style="color: #777; text-decoration: none;">info@crossboarder.org</a></p>
+                    <p style="margin-top: 0.75rem;">Telephone: <span>+27-83492-4837</span></p>
+					<p>Whatsapp: <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services."  style="color: #777; text-decoration: none;"><p><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.55 0 .24 5.3.24 11.82c0 2.08.54 4.1 1.58 5.88L0 24l6.48-1.7a11.8 11.8 0 0 0 5.58 1.42h.01c6.51 0 11.82-5.3 11.82-11.82 0-3.16-1.23-6.13-3.37-8.42zM12.07 21.7a9.82 9.82 0 0 1-5-1.37l-.36-.21-3.85 1.01 1.03-3.75-.24-.38a9.82 9.82 0 1 1 8.42 4.7zm5.39-7.36c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.29.5 1.73.64.73.23 1.39.2 1.92.12.59-.09 1.77-.72 2.02-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35z"/>
+    </svg> <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services."  style="color: #777; text-decoration: none;"></a></p></a></p>
+                    <p style="margin-top: 0.75rem;">9am to 10pm everyday</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h5>Sign Up for Our Newsletter:</h5>
+                <form class="newsletter-box" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; 2026 Cross Border Life Cover. All Rights Reserved.
+            </div>
+            <div class="social-and-top">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3.3 0-4 2.7-4 4v3z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.6c-.9.4-1.8.6-2.8.7 1-.6 1.8-1.6 2.2-2.7-1 .6-2 1-3.1 1.2-.9-1-2.2-1.6-3.6-1.6-2.7 0-5 2.2-5 5 0 .4 0 .8.1 1.1C7.7 8.1 4.1 6.1 1.7 3.1c-.4.8-.7 1.7-.7 2.7 0 1.7.9 3.2 2.2 4.1-.8 0-1.6-.2-2.2-.6v.1c0 2.4 1.7 4.4 4 4.9-.4.1-.9.2-1.4.2-.3 0-.7 0-1-.1.6 2 2.5 3.5 4.7 3.5-1.7 1.4-4 2.2-6.4 2.2-.4 0-.8 0-1.2-.1 2.3 1.5 5 2.3 7.9 2.3 9.5 0 14.7-7.9 14.7-14.7v-.7c1-.7 1.8-1.6 2.5-2.6z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Google Plus">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 11.5v2.1h4.4c-.2 1.1-1.3 3.3-4.4 3.3-2.7 0-4.9-2.2-4.9-5s2.2-5 4.9-5c1.5 0 2.6.7 3.2 1.2l1.6-1.6C11.3 5.5 9.6 4.6 7.5 4.6 3.9 4.6 1 7.5 1 11.1s2.9 6.5 6.5 6.5c3.8 0 6.3-2.7 6.3-6.4 0-.4 0-.8-.1-1.2H7.5zm15.5-.9h-2v-2h-1.5v2h-2v1.5h2v2h1.5v-2h2z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.1c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-.1.4-.2.4-1-.4-2.2-.5-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.5 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1 5.7.2 4.8.4 4 .7c-.8.3-1.5.7-2.1 1.4-.7.6-1.1 1.3-1.4 2.1-.3.8-.5 1.7-.6 3C.1 8.5 0 8.9 0 12s.1 3.5.1 4.8c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.1.6.7 1.3 1.1 2.1 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 4.8.1s3.5-.1 4.8-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.1-1.4.7-.6 1.1-1.3 1.4-2.1.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-4.8s-.1-3.5-.1-4.8c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.1-.6-.7-1.3-1.1-2.1-1.4-.8-.3-1.7-.5-3-.6C15.7.1 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.3c-2.3 0-4.1-1.8-4.1-4.1s1.8-4.1 4.1-4.1 4.1 1.8 4.1 4.1-1.8 4.1-4.1 4.1zm6.4-11c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5 1.5-.7 1.5-1.5z"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5c-1 .3-1.8 1.1-2.1 2.1C0 8 0 12 0 12s0 4 .5 5.8c.3 1 1.1 1.8 2.1 2.1 1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5c1-.3 1.8-1.1 2.1-2.1.5-1.8.5-5.8.5-5.8s0-4-.5-5.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg>
+                    </a>
+                </div>
+                <a href="#" class="back-to-top-btn" aria-label="Back to top">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive script directly embedded for Tabs -->
+    <script>
+        function switchTab(evt, tabName) {
+            const panes = document.querySelectorAll(".tab-pane");
+            const triggers = document.querySelectorAll(".tab-trigger");
+            
+            panes.forEach(pane => pane.classList.remove("active"));
+            triggers.forEach(trigger => trigger.classList.remove("active"));
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <!-- REPLACE: <script src="js/app.js"></script> -->
+    <!-- WITH THE FOLLOWING THREE SCRIPTS IN EXACT ORDER: -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

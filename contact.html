@@ -1,0 +1,325 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Cross Border Life Cover</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Contact split page grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-details-column {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 3rem;
+        }
+
+        .contact-details-column h3 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .info-group {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .info-group svg {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            width: 18px;
+            height: 18px;
+            fill: var(--accent-gold);
+        }
+
+        .info-group h4 {
+            font-family: var(--font-serif);
+            color: var(--text-white);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-group p {
+            color: var(--text-body);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .vcard-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px dashed var(--accent-gold);
+            padding-bottom: 2px;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .vcard-btn:hover {
+            color: var(--text-white);
+            border-color: var(--text-white);
+        }
+
+        .form-box-contact {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 3rem;
+        }
+
+        .form-box-contact h3 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        /* Map frame styled dark as seen in type 14 */
+        .dark-map-container {
+            width: 100%;
+            height: 450px;
+            border: var(--border-thin);
+            filter: invert(90%) hue-rotate(180deg) brightness(0.8); /* Inverts Google map to look dark */
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html" class="active">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Content Section -->
+    <section class="section-container">
+        <h1 class="section-title" style="text-align: center; margin-bottom: 5rem;">Get in Touch</h1>
+        
+        <div class="contact-grid">
+            
+            <!-- Left Column: Official Contact Data -->
+            <div class="contact-details-column">
+                <h3>Contact Info</h3>
+                
+                <!-- Address (Updated to Midrand, South Africa) -->
+                <div class="info-group">
+                    <svg viewBox="0 0 24 24"><path d="M12,2a8,8,0,0,0-8,8c0,5.25,8,12,8,12s8-6.75,8-12A8,8,0,0,0,12,2Zm0,11a3,3,0,1,1,3-3A3,3,0,0,1,12,13Z"/></svg>
+                    <h4>Address</h4>
+                    <p>Block B, Gallagher Co-Space<br>37 Richards Drive, Midrand<br>Johannesburg, 1685<br>South Africa</p>
+                </div>
+
+                <!-- Phones -->
+                <div class="info-group">
+                    <svg viewBox="0 0 24 24"><path d="M6.62,10.79a15.15,15.15,0,0,0,6.59,6.59l2.2-2.2a1,1,0,0,1,1.11-.27,11.48,11.48,0,0,0,3.58,1.14,1,1,0,0,1,.88,1V20a1,1,0,0,1-1,1A17,17,0,0,1,3,4a1,1,0,0,1,1-1H7.13a1,1,0,0,1,1,.88,11.48,11.48,0,0,0,1.14,3.58,1,1,0,0,1-.27,1.11Z"/></svg>
+                    <h4>Phones</h4>
+                    <p>+27-83492-4837</p>
+                </div>
+				
+				<!-- Whatsapp -->
+                <div class="info-group">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="margin-right: 8px; display: inline-block; vertical-align: middle;">
+        <path d="M12.004 2C6.48 2 2 6.48 2 12.004c0 1.764.46 3.42 1.265 4.887L2 22l5.244-1.222a9.922 9.922 0 0 0 4.76 1.226h.004c5.524 0 10.004-4.48 10.004-10.004C22.012 6.48 17.528 2 12.004 2zM12 20.06a8.038 8.038 0 0 1-4.085-1.12l-.292-.174-3.04.708.812-2.964-.19-.306a8.006 8.006 0 0 1-1.228-4.21c0-4.42 3.602-8.022 8.028-8.022a8.006 8.006 0 0 1 5.676 2.35 8.006 8.006 0 0 1 2.348 5.672c-.004 4.436-3.606 8.038-8.03 8.038zm4.404-6.008c-.24-.12-1.42-.7-1.642-.782-.222-.08-.384-.12-.544.12-.162.24-.622.782-.762.942-.14.16-.28.18-.52.06a7.258 7.258 0 0 1-1.932-1.196 8.01 8.01 0 0 1-1.338-1.666c-.14-.24-.014-.37.106-.49.108-.108.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.422-.06-.12-.544-1.31-.746-1.792-.195-.472-.394-.408-.542-.414-.14-.008-.3-.008-.462-.008a.885.885 0 0 0-.644.3c-.22.24-.84.82-.84 2s.864 2.328.984 2.49c.12.162 1.7 2.596 4.12 3.642.576.25 1.024.398 1.376.51.578.184 1.102.158 1.518.096.464-.07 1.422-.582 1.622-1.144.2-.562.2-.104.14-.204-.06-.1-.22-.16-.46-.28z"/>
+    </svg>	<p><a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services." style="color: var(--text-body); text-decoration: none;"><h4>Whatsapp</h4>
+                   
+                </div>
+
+                <!-- E-mail -->
+                <div class="info-group">
+                    <svg viewBox="0 0 24 24"><path d="M20,4H4C2.9,4,2,4.9,2,6V18a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V6A2,2,0,0,0,20,4Zm-.4,4.25-7.07,4.42a1,1,0,0,1-1.06,0L4.4,8.25A.5.5,0,0,1,4.3,7.4L11,11.6a1,1,0,0,0,1,0L19.7,7.4a.5.5,0,0,1,.1.85Z"/></svg>
+                    <h4>E-mail</h4>
+                    <p><a href="mailto:mail@demolink.org" style="color: var(--text-body); text-decoration: none;">info@crossboarder.org</a></p>
+                </div>
+
+                <!-- Download vCard (Browser-ready data URI with updated Midrand Address) -->
+                <div class="info-group" style="padding-left: 0;">
+                    <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AN:Cover;Cross;Border;Life;%0AFN:Cross%20Border%20Life%20Cover%0AORG:Cross%20Border%20Life%20Cover%0ATEL;TYPE=WORK,VOICE:+27-83492-4837%0AADR;TYPE=WORK,PREF:;;37%20Richards%20Drive;Midrand;Gauteng;1685;South%20Africa%0AEMAIL:mail@demolink.org%0AEND:VCARD" download="cross_border_life_cover.vcf" class="vcard-btn">
+                        <svg viewBox="0 0 24 24" style="position: static; display: inline-block; vertical-align: middle; margin-right: 0.25rem;"><path d="M19.35,10.04C18.67,6.59,15.64,4,12,4C9.11,4,6.6,5.64,5.35,8.04C2.34,8.36,0,10.91,0,14c0,3.31,2.69,6,6,6h13c2.76,0,5-2.24,5-5C24,12.36,21.95,10.22,19.35,10.04z M17,13l-5,5l-5-5h3V9h4v4H17z"/></svg>
+                        Download information as: vCard
+                    </a>
+                </div>
+
+                <!-- Miscellaneous -->
+                <div class="info-group" style="border-top: 1px solid rgba(197, 160, 89, 0.15); padding-top: 1.5rem; margin-top: 2rem;">
+                    <h4>Miscellaneous Information</h4>
+                    <p>Email us with any questions or inquiries or use our contact data.</p>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Contact Inquiry Form (type 7/17 Style) -->
+            <div class="form-box-contact">
+                <h3>Send a Message</h3>
+                <form id="leadForm">
+                    <div class="form-row">
+                        <label class="form-label" for="fullName">Name</label>
+                        <input type="text" id="fullName" class="form-input" required placeholder="Enter your name...">
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="form-input" required placeholder="Enter your email...">
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="phone">Phone</label>
+                        <input type="tel" id="phone" class="form-input" required placeholder="Enter your telephone...">
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea id="message" class="form-input" rows="6" required placeholder="Type your message here..." style="font-family: var(--font-sans); resize: none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Message</button>
+                </form>
+                <div id="responseMessage" style="margin-top: 1.5rem; text-align: center; font-weight: bold;"></div>
+            </div>
+
+        </div>
+
+        <!-- Content Divider -->
+        <div class="gold-divider" style="margin-top: 6rem;">
+            <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+        </div>
+
+        <!-- Integrated Midrand Main Office Location Map -->
+        <div style="margin-top: 4rem;">
+            <h3 style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.4rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; text-align: center;">Our Main Office Location</h3>
+            <iframe class="dark-map-container" src="https://maps.google.com/maps?q=37%20Richards%20Drive%2C%20Midrand%2C%20South%20Africa&t=&z=14&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        </div>
+
+    </section>
+
+    <!-- Blue "Contact us" Floating Widget -->
+    <a href="https://wa.me/+27-83492-4837?text=Hi,%20I'm%20interested%20in%20your%20life%20cover%20services." class="contact-widget-float">
+    <img src="images/logo1.png" alt="Cross Border Life Cover Logo" class="logo-img">
+    Contact us
+</a>
+
+    <!-- Universal Footer () -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h5>Information</h5>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                    <li><a href="plans.html">Our Plans</a></li>
+                    <li><a href="faq.html">Search Terms</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="more.html">Advanced Search</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Why Choose Us</h5>
+                <ul>
+                    <li><a href="testimonials">Testimonials</a></li>
+                    <li><a href="paymentplan.html">Secure payment</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                    <li><a href="guarantee.html">Guarantee</a></li>
+                    <li><a href="T&C.html">Terms & Conditions</a></li>
+					<li><a href="about.html">History</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+    <h5>My Account</h5>
+    <ul>
+        <li><a href="dashboard.html">Member Dashboard</a></li> <!-- Pointing to new dashboard -->
+        <li><a href="forum.html">Forum</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="elements.html">Elements</a></li>
+        <li><a href="sitemap.html">Site Map</a></li>
+    </ul>
+</div>
+            <div class="footer-column">
+                <h5>Contacts</h5>
+                <div class="footer-contact-info">
+                    <p>E-mail: <a href="crossboarderlifecover.org" style="color: #777; text-decoration: none;">info@crossboarder.org</a></p>
+                    <p style="margin-top: 0.75rem;">Telephone: <span>+27-83492-4837</span></p>
+                    <p style="margin-top: 0.75rem;">9am to 10pm everyday</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h5>Sign Up for Our Newsletter:</h5>
+                <form class="newsletter-box" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; 2026 Cross Border Life Cover. All Rights Reserved.
+            </div>
+            <div class="social-and-top">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3.3 0-4 2.7-4 4v3z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.6c-.9.4-1.8.6-2.8.7 1-.6 1.8-1.6 2.2-2.7-1 .6-2 1-3.1 1.2-.9-1-2.2-1.6-3.6-1.6-2.7 0-5 2.2-5 5 0 .4 0 .8.1 1.1C7.7 8.1 4.1 6.1 1.7 3.1c-.4.8-.7 1.7-.7 2.7 0 1.7.9 3.2 2.2 4.1-.8 0-1.6-.2-2.2-.6v.1c0 2.4 1.7 4.4 4 4.9-.4.1-.9.2-1.4.2-.3 0-.7 0-1-.1.6 2 2.5 3.5 4.7 3.5-1.7 1.4-4 2.2-6.4 2.2-.4 0-.8 0-1.2-.1 2.3 1.5 5 2.3 7.9 2.3 9.5 0 14.7-7.9 14.7-14.7v-.7c1-.7 1.8-1.6 2.5-2.6z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Google Plus">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 11.5v2.1h4.4c-.2 1.1-1.3 3.3-4.4 3.3-2.7 0-4.9-2.2-4.9-5s2.2-5 4.9-5c1.5 0 2.6.7 3.2 1.2l1.6-1.6C11.3 5.5 9.6 4.6 7.5 4.6 3.9 4.6 1 7.5 1 11.1s2.9 6.5 6.5 6.5c3.8 0 6.3-2.7 6.3-6.4 0-.4 0-.8-.1-1.2H7.5zm15.5-.9h-2v-2h-1.5v2h-2v1.5h2v2h1.5v-2h2z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.1c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-.1.4-.2.4-1-.4-2.2-.5-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.5 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1 5.7.2 4.8.4 4 .7c-.8.3-1.5.7-2.1 1.4-.7.6-1.1 1.3-1.4 2.1-.3.8-.5 1.7-.6 3C.1 8.5 0 8.9 0 12s.1 3.5.1 4.8c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.1.6.7 1.3 1.1 2.1 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 4.8.1s3.5-.1 4.8-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.1-1.4.7-.6 1.1-1.3 1.4-2.1.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-4.8s-.1-3.5-.1-4.8c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.1-.6-.7-1.3-1.1-2.1-1.4-.8-.3-1.7-.5-3-.6C15.7.1 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.3c-2.3 0-4.1-1.8-4.1-4.1s1.8-4.1 4.1-4.1 4.1 1.8 4.1 4.1-1.8 4.1-4.1 4.1zm6.4-11c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5 1.5-.7 1.5-1.5z"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5c-1 .3-1.8 1.1-2.1 2.1C0 8 0 12 0 12s0 4 .5 5.8c.3 1 1.1 1.8 2.1 2.1 1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5c1-.3 1.8-1.1 2.1-2.1.5-1.8.5-5.8.5-5.8s0-4-.5-5.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg>
+                    </a>
+                </div>
+                <a href="#" class="back-to-top-btn" aria-label="Back to top">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- REPLACE: <script src="js/app.js"></script> -->
+    <!-- WITH THE FOLLOWING THREE SCRIPTS IN EXACT ORDER: -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
