@@ -1,6 +1,4 @@
 // Replace these with your actual Supabase Project details
-const SUPABASE_URL = "https://your-supabase-project.supabase.co";
-const SUPABASE_ANON_KEY = "your-supabase-anon-key";
 
 // Initialize Supabase Client
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -115,3 +113,80 @@ async function updateDynamicNavbar() {
 document.addEventListener("DOMContentLoaded", () => {
   updateDynamicNavbar();
 });
+// js/auth.js
+
+// Set your Supabase credentials here to go live.
+// If left as default, the app automatically runs in Mock Mode.
+const SUPABASE_URL = "YOUR_SUPABASE_URL"; 
+const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+
+let supabaseClient = null;
+let useMockBackend = true;
+
+// Initialize Supabase only if valid keys are provided
+if (SUPABASE_URL !== "YOUR_SUPABASE_URL" && SUPABASE_ANON_KEY !== "YOUR_SUPABASE_ANON_KEY" && typeof supabase !== 'undefined') {
+    try {
+        supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        useMockBackend = false;
+        console.log("Database Status: Connected to live Supabase cloud.");
+    } catch (e) {
+        console.warn("Failed to initialize Supabase client. Falling back to Mock Storage.");
+    }
+} else {
+    console.log("Database Status: Running in Local Mock Mode (Supabase not configured).");
+}
+
+// Authentication check on page load
+document.addEventListener("DOMContentLoaded", async () => {
+    const loginBtn = document.querySelector('a[href="login.html"]');
+    if (!loginBtn) return;
+
+    if (!useMockBackend) {
+        // --- Live Supabase Auth Path ---
+        try {
+            const { data: { session }, error } = await supabaseClient.auth.getSession();
+            if (error) throw error;
+
+            if (session) {
+                loginBtn.textContent = "Member Dashboard";
+                loginBtn.href = "dashboard.html";
+            } else {
+                loginBtn.textContent = "Member Log In";
+                loginBtn.href = "login.html";
+            }
+        } catch (err) {
+            console.error("Auth Session check failed:", err.message);
+        }
+    } else {
+        // --- Local Mock Auth Path ---
+        const mockUser = localStorage.getItem("mock_session_user");
+        if (mockUser) {
+            loginBtn.textContent = "Member Dashboard";
+            loginBtn.href = "dashboard.html";
+        } else {
+            loginBtn.textContent = "Member Log In";
+            loginBtn.href = "login.html";
+        }
+    }
+});
+
+// Unified Login Action
+async function loginMember(email, password) {
+    if (!useMockBackend && supabaseClient) {
+        return await supabaseClient.auth.signInWithPassword({ email, password });
+    } else {
+        // Simulate a successful local login
+        localStorage.setItem("mock_session_user", JSON.stringify({ email }));
+        return { data: { user: { email } }, error: null };
+    }
+}
+
+// Unified Logout Action
+async function logoutMember() {
+    if (!useMockBackend && supabaseClient) {
+        await supabaseClient.auth.signOut();
+    } else {
+        localStorage.removeItem("mock_session_user");
+    }
+    window.location.href = "index.html";
+}

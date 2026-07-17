@@ -103,3 +103,8 @@ function escapeHTML(str) {
     tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
   );
 }
+
+
+
+const SUPABASE_URL = "https://uygivlgukgzplrxxtwbb.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5Z2l2bGd1a2d6cGxyeHh0d2JiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzNzg1NzksImV4cCI6MjA5Njk1NDU3OX0.gDh7ATzr1IT597-BIBQS1lqKliRA-ss3--KMHyt8Z7I";
