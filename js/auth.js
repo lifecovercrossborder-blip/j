@@ -211,3 +211,65 @@ async function signOutUser() {
     // Log login event in audit table upon success
     if (response.data && response.data.user";
 }
+// js/auth.js (Routing Configuration)
+
+// 1. Define your 17-page routing permissions centrally
+const PROTECTED_PAGES = [
+    "dashboard.html",
+    "forum.html"
+    // Add any other page filenames that require user login here
+];
+
+const GUEST_ONLY_PAGES = [
+    "login.html",
+    "reset-password.html"
+    // Add pages that logged-in users should not see (e.g. signup pages)
+];
+
+// 2. Global State Listener & Protected Routes Manager
+document.addEventListener("DOMContentLoaded", async () => {
+    if (!supabaseClient) return;
+
+    try {
+        const { data: { session }, error } = await supabaseClient.auth.getSession();
+        if (error) throw error;
+
+        const loginBtn = document.querySelector('a[href="login.html"]');
+        const currentPath = window.location.pathname;
+        
+        // Check if the current URL matches a protected or guest-only page
+        const isProtectedPage = PROTECTED_PAGES.some(page => currentPath.endsWith(page));
+        const isGuestOnlyPage = GUEST_ONLY_PAGES.some(page => currentPath.endsWith(page));
+
+        if (session) {
+            // -- User is authenticated --
+            if (loginBtn) {
+                loginBtn.textContent = "Member Dashboard";
+                loginBtn.href = "dashboard.html";
+            }
+
+            // Redirect logged-in users away from Guest-Only pages (like login.html)
+            if (isGuestOnlyPage) {
+                window.location.href = "dashboard.html";
+            }
+
+            // Populate dashboard profile details if on the secure panel
+            if (currentPath.includes("dashboard.html")) {
+                loadDashboardData(session.user);
+            }
+        } else {
+            // -- User is unauthenticated --
+            if (loginBtn) {
+                loginBtn.textContent = "Member Log In";
+                loginBtn.href = "login.html";
+            }
+
+            // Enforce protection: Boot unauthenticated users out of private pages
+            if (isProtectedPage) {
+                window.location.href = "login.html?status=unauthorized";
+            }
+        }
+    } catch (err) {
+        console.error("Auth initialization failed:", err.message);
+    }
+});
