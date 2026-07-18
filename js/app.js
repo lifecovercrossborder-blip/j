@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 setTimeout(() => {
                     const waText = encodeURIComponent(`Hi, my name is ${formData.fullName}. ${formData.message}`);
-                    window.location.href = `https://wa.me/+27-83492-4837?text=${waText}`;
+                    window.location.href = `https://wa.me/+27-72-498-0295?text=${waText}`;
                 }, 1500);
             }
         });
