@@ -1,122 +1,106 @@
+<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Dashboard - Cross Border Life Cover</title>
+    <title>Member Dashboard - Cross Border Life Cover</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .dashboard-layout {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        @media (max-width: 768px) {
+            .dashboard-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        .dash-card {
+            background-color: var(--bg-card);
+            border: var(--border-thin);
+            padding: 2.5rem;
+            border-radius: 4px;
+        }
+        .dash-card h3 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+        }
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .meta-list li {
+            font-size: 1rem;
+            color: var(--text-white);
+            margin-bottom: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
+            padding-bottom: 0.5rem;
+        }
+        .meta-list li span {
+            color: var(--text-body);
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Header Navigation -->
     <header>
-    <nav class="nav-container">
-        <a href="index.html" class="logo-container">
-            <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="plans.html">Plans</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="faq.html">FAQs</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-			<a href="login.html" class="btn btn-primary">Member Log In</a>
-        </ul>
-    </nav>
-</header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/logo.png" alt="Cross Border Life Cover Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+                <li><button onclick="signOutUser()" class="btn btn-primary" style="background-color: #dc3545; border-color: #dc3545; color: white; cursor: pointer;">Log Out</button></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section class="section-container" style="max-width: 800px; margin: 4rem auto;">
+    <div class="dashboard-layout">
         
-        <!-- View 1: Unsubscribed state -->
-        <div id="locked-view" class="form-box" style="display:none; text-align: center;">
-            <h2 class="form-title">Activate Cover</h2>
-            <p style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.8;">
-                To complete your policy registration, you must configure your monthly premium payments. Click below to proceed to our secure checkout terminal.
-            </p>
-            <button id="checkout-btn" class="btn btn-primary" onclick="handleCheckout()" style="width: 100%;">
-                Subscribe to Premium Plan
-            </button>
-        </div>
-
-        <!-- View 2: Active Subscriber Dashboard -->
-        <div id="premium-view" style="display:none;">
-            <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Premium Member Workspace</h2>
-            
-            <div style="background-color: var(--bg-card); border: var(--border-thin); padding: 2.5rem; margin-bottom: 3rem;">
-                <h3 style="font-family: var(--font-serif); color: var(--accent-gold); margin-bottom: 1rem;">Policy Information</h3>
-                <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-body);">
-                    Your cross-border policy is currently active and fully underwritten. You have access to our direct, rapid claims coordination services, border administrative assistance, and premium documentation tools.
-                </p>
-            </div>
-
-            <div style="background-color: var(--bg-card); border: var(--border-thin); padding: 2.5rem;">
-                <h3 style="font-family: var(--font-serif); color: var(--accent-gold); margin-bottom: 1.5rem;">Exclusive Resources</h3>
-                <div id="premium-content-area">
-                    <p style="color: var(--text-body); font-size: 0.95rem;">Retrieving your premium files...</p>
-                </div>
+        <!-- Left: Client Profile Info -->
+        <div class="dash-card">
+            <h3>Member Credentials Profile</h3>
+            <ul class="meta-list">
+                <li><span>Client Name:</span> <strong id="dash-name">Loading...</strong></li>
+                <li><span>Payer Email:</span> <strong id="dash-email">Loading...</strong></li>
+                <li><span>Phone Number:</span> <strong id="dash-phone">Loading...</strong></li>
+                <li><span>SADC Destination:</span> <strong id="dash-country">Loading...</strong></li>
+            </ul>
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                <a href="plans.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Change Policy Plan</a>
+                <a href="paymentplan.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem; background-color: var(--accent-gold); color: #0b1118; border: none;">Pay Online</a>
             </div>
         </div>
 
-    </section>
-
-    <!-- Universal Footer -->
-    <footer class="site-footer">
-        <div class="footer-top">
-            <div class="footer-column">
-                <h5>Information</h5>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Customer Service</a></li>
-                    <li><a href="plans.html">Our Plans</a></li>
-                    <li><a href="faq.html">Search Terms</a></li>
-                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h5>Why Choose Us</h5>
-                <ul>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="paymentplan.html">Secure payment</a></li>
-                    <li><a href="contact.html">Support</a></li>
-                    <li><a href="guarantee.html">Guarantee</a></li>
-                    <li><a href="T&C.html">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h5>My Account</h5>
-                <ul>
-                    <li><a href="forum.html">Forum</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h5>Contacts</h5>
-                <div class="footer-contact-info">
-                    <p>E-mail: <a href="mailto:info@crossboarderlifecover.co.za" style="color: #777; text-decoration: none;">info@crossborderlifecover.co.za</a></p>
-                    <p style="margin-top: 0.75rem;">Telephone: <span>+27-72-498-0295</span></p>
-                    <p style="margin-top: 0.75rem;">9am to 10pm everyday</p>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h5>Sign Up for Our Newsletter:</h5>
-                <form class="newsletter-box">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                    <button type="submit" class="newsletter-btn">Subscribe</button>
-                </form>
-            </div>
+        <!-- Right: Login Session Logs Audit Trail -->
+        <div class="dash-card">
+            <h3>Recent Secure Sessions</h3>
+            <ul id="dash-history-list" style="list-style: none; padding: 0; margin: 0;">
+                <li style="color: var(--text-body); font-size: 0.9rem;">No sessions logged in this account.</li>
+            </ul>
         </div>
-        <div class="footer-bottom">
-            <div class="copyright-text">
-                &copy; 2026 Cross Border Life Cover. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
 
+    </div>
+
+    <!-- Script triggers -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/auth.js"></script>
-    <script src="js/premium.js"></script>
-    <script>
-        checkSubscriptionAndLoad();
-    </script>
 </body>
 </html>
