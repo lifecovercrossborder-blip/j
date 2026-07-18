@@ -727,12 +727,14 @@
                 </div>
             </div>
             <div class="footer-column">
-                <h5>Sign Up for Our Newsletter:</h5>
-                <form class="newsletter-box" onsubmit="event.preventDefault();">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                    <button type="submit" class="newsletter-btn">Subscribe</button>
-                </form>
-            </div>
+    <h5>Sign Up for Our Newsletter:</h5>
+    <!-- Replace 'YOUR_FORM_ID' with your actual Formspree ID -->
+    <form id="newsletter-form" class="newsletter-box" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <button type="submit" class="newsletter-btn" id="newsletter-submit-btn">Subscribe</button>
+    </form>
+    <div id="newsletter-status" style="margin-top: 0.5rem; font-size: 0.85rem; display: none;"></div>
+</div>
         </div>
         <div class="footer-bottom">
             <div class="copyright-text">

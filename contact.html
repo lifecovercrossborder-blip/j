@@ -186,29 +186,30 @@
             </div>
 
             <!-- Right Column: Contact Inquiry Form (type 7/17 Style) -->
-            <div class="form-box-contact">
-                <h3>Send a Message</h3>
-                <form id="leadForm">
-                    <div class="form-row">
-                        <label class="form-label" for="fullName">Name</label>
-                        <input type="text" id="fullName" class="form-input" required placeholder="Enter your name...">
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label" for="email">Email</label>
-                        <input type="email" id="email" class="form-input" required placeholder="Enter your email...">
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label" for="phone">Phone</label>
-                        <input type="tel" id="phone" class="form-input" required placeholder="Enter your telephone...">
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label" for="message">Message</label>
-                        <textarea id="message" class="form-input" rows="6" required placeholder="Type your message here..." style="font-family: var(--font-sans); resize: none;"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Message</button>
-                </form>
-                <div id="responseMessage" style="margin-top: 1.5rem; text-align: center; font-weight: bold;"></div>
-            </div>
+<div class="form-box-contact">
+    <h3>Send a Message</h3>
+    <!-- Replace 'YOUR_FORMSPREE_ID' with your actual Formspree ID from your dashboard -->
+    <form id="leadForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <div class="form-row">
+            <label class="form-label" for="fullName">Name</label>
+            <input type="text" id="fullName" name="name" class="form-input" required placeholder="Enter your name...">
+        </div>
+        <div class="form-row">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-input" required placeholder="Enter your email...">
+        </div>
+        <div class="form-row">
+            <label class="form-label" for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" class="form-input" required placeholder="Enter your telephone...">
+        </div>
+        <div class="form-row">
+            <label class="form-label" for="message">Message</label>
+            <textarea id="message" name="message" class="form-input" rows="6" required placeholder="Type your message here..." style="font-family: var(--font-sans); resize: none;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="lead-submit-btn" style="width: 100%; margin-top: 1rem;">Send Message</button>
+    </form>
+    <div id="responseMessage" style="margin-top: 1.5rem; text-align: center; font-weight: bold;"></div>
+</div>
 
         </div>
 
@@ -277,12 +278,14 @@
                 </div>
             </div>
             <div class="footer-column">
-                <h5>Sign Up for Our Newsletter:</h5>
-                <form class="newsletter-box" onsubmit="event.preventDefault();">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                    <button type="submit" class="newsletter-btn">Subscribe</button>
-                </form>
-            </div>
+    <h5>Sign Up for Our Newsletter:</h5>
+    <!-- Replace 'YOUR_FORM_ID' with your actual Formspree ID -->
+    <form id="newsletter-form" class="newsletter-box" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <button type="submit" class="newsletter-btn" id="newsletter-submit-btn">Subscribe</button>
+    </form>
+    <div id="newsletter-status" style="margin-top: 0.5rem; font-size: 0.85rem; display: none;"></div>
+</div>
         </div>
         <div class="footer-bottom">
             <div class="copyright-text">

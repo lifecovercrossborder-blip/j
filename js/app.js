@@ -168,3 +168,53 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+// js/app.js (Append to bottom)
+
+document.addEventListener("DOMContentLoaded", () => {
+    const newsletterForm = document.getElementById("newsletter-form");
+    const statusDiv = document.getElementById("newsletter-status");
+    const submitBtn = document.getElementById("newsletter-submit-btn");
+
+    if (newsletterForm && statusDiv && submitBtn) {
+        newsletterForm.addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevents page reload
+            
+            const data = new FormData(event.target);
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending...";
+
+            try {
+                const response = await fetch(event.target.action, {
+                    method: event.target.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    statusDiv.textContent = "Thank you for subscribing!";
+                    statusDiv.style.color = "#28a745"; // Green success text
+                    statusDiv.style.display = "block";
+                    newsletterForm.reset();
+                } else {
+                    const result = await response.json();
+                    if (result.errors) {
+                        statusDiv.textContent = result.errors.map(error => error.message).join(", ");
+                    } else {
+                        statusDiv.textContent = "Oops! There was a problem submitting your form.";
+                    }
+                    statusDiv.style.color = "#dc3545"; // Red error text
+                    statusDiv.style.display = "block";
+                }
+            } catch (error) {
+                statusDiv.textContent = "Oops! There was a network connectivity issue.";
+                statusDiv.style.color = "#dc3545";
+                statusDiv.style.display = "block";
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Subscribe";
+            }
+        });
+    }
+});
